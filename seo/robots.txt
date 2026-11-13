@@ -1,0 +1,30 @@
+# Предлагаемая замена robots.txt (сверить с разработчиком Битрикса перед выкладкой)
+User-agent: *
+Disallow: /bitrix/
+Disallow: /*?utm_
+Disallow: /*&utm_
+Disallow: /*?gclid=
+Disallow: /*?yclid=
+Disallow: /*?openstat=
+Disallow: /*?from=
+Disallow: /*?year=
+Disallow: /*?view=
+Disallow: /news/1291/
+Disallow: /news/1466/
+Disallow: /disclaimer
+Allow: /bitrix/templates/
+Allow: /bitrix/cache/
+Allow: /upload/
+
+# Поисковые и ИИ-боты: доступ открыт явно
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: YandexAdditional
+Allow: /
+
+Sitemap: https://aldocoppola.ru/sitemap.xml
