@@ -25,7 +25,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500&family=Jost:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- ===== Структурированные данные: организация, сайт, 7 салонов, вопросы-ответы =====
      Видеотуры (VideoObject): при выкладке заменить адреса /upload/tour/… на фактические и uploadDate — на дату публикации -->
@@ -530,9 +530,9 @@ address{font-style:normal}
 /* ---------- шапка ---------- */
 .top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;gap:24px;height:var(--top-h);max-width:1440px}
-.brand{display:flex;align-items:center;gap:12px;flex:none;font-family:var(--serif);font-size:18px;letter-spacing:.04em;white-space:nowrap}
+.brand{display:flex;align-items:center;gap:12px;flex:none;font-family:"Jost","Futura","Century Gothic",var(--sans);font-size:19px;letter-spacing:.08em;white-space:nowrap}
 .brand img{width:40px;height:40px}
-.brand b{font-weight:700}
+.brand b{font-weight:500}
 .nav{flex:1;min-width:0}
 .nav>ul{display:flex;justify-content:center;gap:clamp(14px,1.7vw,28px)}
 .nav>ul>li{position:relative}
@@ -555,10 +555,8 @@ address{font-style:normal}
 .menu-open .burger span{opacity:0}
 
 /* ---------- обложка ---------- */
-.cover{padding:28px 0 0}
+.cover{padding:32px 0 0}
 .issue{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--grey);padding-bottom:14px;border-bottom:1px solid var(--ink)}
-.masthead{font-family:var(--serif);font-weight:900;font-size:clamp(54px,13.2vw,172px);line-height:.84;letter-spacing:-.035em;margin:18px 0 28px;color:var(--ink-2);white-space:nowrap}
-.masthead em{font-style:italic;font-weight:400;color:var(--red);letter-spacing:-.02em}
 /* видео кампании: чистый кадр, управление — под ним */
 .screen{margin:0}
 .screen-media{aspect-ratio:16/9;max-height:calc(100vh - var(--top-h) - 120px);width:100%;background:var(--mist);overflow:hidden}
@@ -852,7 +850,6 @@ section.mist{background:var(--mist)}
   .top .btn,.top-tel{display:none}
   .brand img{width:34px;height:34px}
   .issue span:nth-child(2){display:none}
-  .masthead{font-size:14.2vw;margin-bottom:20px}
   .screen-media{aspect-ratio:4/5;max-height:none}
   .cover-grid{grid-template-columns:1fr;padding:32px 0 48px}
   .coverlines{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
@@ -936,7 +933,6 @@ section.mist{background:var(--mist)}
 <!-- ================= ОБЛОЖКА ================= -->
 <section class="cover" id="cover" style="padding-bottom:0" aria-label="Aldo Coppola">
   <div class="wrap">
-    <div class="masthead" aria-hidden="true">Aldo <em>Coppola</em></div>
 
     <!-- Видео кампании: чистый кадр, без надписей и кнопок поверх. Обновляется раз в год. -->
     <figure class="screen">
