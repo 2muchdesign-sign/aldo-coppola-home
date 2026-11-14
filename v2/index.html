@@ -806,8 +806,14 @@ section.mist{background:var(--mist)}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.ticker-track,.hours-card small i,.tr-play::before{animation:none}.tr-track{scroll-behavior:auto}html{scroll-behavior:auto}*{transition:none!important}}
 
 /* ---------- адаптив ---------- */
-@media (min-width:1101px) and (max-width:1320px){
-  .top-tel{display:none}
+/* меню не помещается в одну строку с логотипом — переносим его вторым рядом шапки */
+@media (min-width:1101px) and (max-width:1760px){
+  .top .wrap{flex-wrap:wrap;height:auto;gap:0 24px}
+  .brand{height:var(--top-h)}
+  .top-side{margin-left:auto}
+  .nav{order:5;flex:0 0 100%;border-top:1px solid var(--line)}
+  .nav>ul{justify-content:space-between}
+  .nav a,.nav button{height:48px}
 }
 @media (max-width:1100px){
   .burger{display:block}
@@ -930,11 +936,6 @@ section.mist{background:var(--mist)}
 <!-- ================= ОБЛОЖКА ================= -->
 <section class="cover" id="cover" style="padding-bottom:0" aria-label="Aldo Coppola">
   <div class="wrap">
-    <div class="issue">
-      <span>Milano · Mosca · с 1996 года</span>
-      <span>Кампания 2026</span>
-      <span>7 центров красоты</span>
-    </div>
     <div class="masthead" aria-hidden="true">Aldo <em>Coppola</em></div>
 
     <!-- Видео кампании: чистый кадр, без надписей и кнопок поверх. Обновляется раз в год. -->
@@ -946,7 +947,7 @@ section.mist{background:var(--mist)}
         </video>
       </div>
       <figcaption>
-        <span><em>Кампания 2026</em> · снята в Италии</span>
+        <span><em>Рекламная кампания 2026</em></span>
         <span class="v-ctl">
           <button type="button" id="vPlay" aria-label="Пауза" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
           <button type="button" id="vSound" aria-label="Включить звук" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4zm12.5 3 2.5-2.5-1.4-1.4-2.5 2.5-2.5-2.5-1.4 1.4 2.5 2.5-2.5 2.5 1.4 1.4 2.5-2.5 2.5 2.5 1.4-1.4z"/></svg></button>
