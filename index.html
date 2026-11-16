@@ -649,6 +649,68 @@ address{font-style:normal}
 .salon .book{margin-top:16px;font-size:13px}
 .salons-foot{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;margin-top:clamp(40px,5vw,64px)}
 
+
+/* ===== Центры красоты: компактный список, раскрытие по нажатию =====
+   Телефон: 7 строк помещаются на один экран, фото и детали — по нажатию.
+   Десктоп: список слева, фото открытого центра — справа. */
+.sal{position:relative;border-top:1px solid var(--line)}
+.sal-region{font-size:12px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);padding:22px 0 8px}
+.sal-i{border-bottom:1px solid var(--line)}
+.sal-i summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) 28px;align-items:baseline;gap:4px 16px;padding:15px 0;min-height:56px}
+.sal-i summary::-webkit-details-marker{display:none}
+.sal-n{white-space:nowrap;font-family:var(--serif);font-size:clamp(23px,2vw,30px);line-height:1.15;transition:color .2s}
+.sal-s{font-size:14px;color:var(--muted);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sal-x{position:relative;width:16px;height:16px;align-self:center;justify-self:end}
+.sal-x::before,.sal-x::after{content:"";position:absolute;left:0;right:0;top:50%;height:1.5px;background:var(--red);transition:transform .3s}
+.sal-x::after{transform:rotate(90deg)}
+.sal-i[open] .sal-x::after{transform:rotate(0)}
+.sal-i summary:hover .sal-n,.sal-i[open] .sal-n{color:var(--red)}
+.sal-body{display:grid;gap:18px;padding:2px 0 24px}
+.sal-fig{position:relative;margin:0;aspect-ratio:16/10;background:var(--sand)}
+.sal-fig img{width:100%;height:100%;object-fit:cover}
+.sal-info address{font-size:16.5px;line-height:1.5;color:var(--muted)}
+.sal-info .hours{margin-top:4px;font-size:16px;color:var(--muted)}
+.sal-info .tel{display:block;width:fit-content;margin-top:10px;font-size:19px;font-weight:600}
+.sal-info .tel:hover{color:var(--red)}
+.sal-info .book{margin-top:14px;font-size:13px}
+@media (min-width:900px){
+  .sal{display:grid;grid-template-columns:40% 1fr;align-items:start}
+  .sal>*{grid-column:1}
+  .sal::after{content:"";grid-column:2;grid-row:1/span 12;aspect-ratio:4/3;margin-left:56px}
+  .sal-i .sal-fig{position:absolute;top:24px;right:0;left:calc(40% + 56px);aspect-ratio:4/3}
+  .sal-i:not([open]) .sal-fig{display:none}
+  .sal-body{grid-template-columns:1fr;padding-bottom:20px}
+}
+@media (max-width:420px){.sal-s{font-size:13px}}
+
+/* ===== Деликатное движение: мазок логотипа и красная линия =====
+   Без JS и при prefers-reduced-motion всё видно сразу в конечном виде.
+   Выключить: window.AC_FX='off' до скрипта страницы. */
+@property --p{syntax:'<angle>';inherits:false;initial-value:360deg}
+.ring{--p:360deg;display:block;aspect-ratio:1/.993;background:url(media/ring.webp) center/contain no-repeat;
+  -webkit-mask:conic-gradient(from 32deg,#000 var(--p),transparent 0);mask:conic-gradient(from 32deg,#000 var(--p),transparent 0)}
+.fx .ring:not(.in){--p:0deg}
+.fx .ring{transition:--p 2.4s cubic-bezier(.65,0,.25,1)}
+.fx .logo img{-webkit-mask:conic-gradient(from 32deg,#000 var(--p),transparent 0);mask:conic-gradient(from 32deg,#000 var(--p),transparent 0);animation:paint 1.6s .2s cubic-bezier(.65,0,.25,1) both}
+@keyframes paint{from{--p:0deg}to{--p:360deg}}
+.stamp{position:relative;width:min(240px,52vw);aspect-ratio:1;margin-top:clamp(28px,4vw,48px);display:grid;place-items:center}
+.stamp .ring{position:absolute;inset:0}
+.stamp p{position:relative;text-align:center;font-family:var(--serif);line-height:1}
+.stamp b{display:block;font-weight:500;font-size:clamp(64px,7vw,92px)}
+.stamp span{display:block;margin-top:6px;font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.scribble{position:relative;white-space:nowrap}
+.scribble svg{position:absolute;left:-2%;bottom:-.16em;width:104%;height:.36em;overflow:visible;pointer-events:none}
+.scribble path{fill:none;stroke:var(--red);stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.fx .scribble path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.3s .3s cubic-bezier(.65,0,.25,1)}
+.fx .scribble.in path{stroke-dashoffset:0}
+.outline{position:absolute;inset:-9px;width:calc(100% + 18px);height:calc(100% + 18px);overflow:visible;pointer-events:none;z-index:2}
+.outline path{fill:none;stroke:var(--red);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.fx .outline path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 1.8s cubic-bezier(.65,0,.25,1)}
+.fx .in>.outline path{stroke-dashoffset:0}
+.dir .outline{opacity:0;transition:opacity .4s}
+.dir.in .outline{opacity:1}
+@media (hover:hover){.fx .dir .outline path{stroke-dashoffset:1}.fx .dir.in:hover .outline path{stroke-dashoffset:0}}
+
 /* ===== Вопросы ===== */
 .faq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px)}
 .faq-grid h2{font-size:clamp(34px,4.4vw,64px);margin-top:14px}
@@ -789,9 +851,9 @@ address{font-style:normal}
             <li><a href="https://beautybar.aldocoppola.ru/collection/podarochnye-sertifikaty-na-uslugi-v-tsentrah-krasoty-i-kosmetologii-aldo-coppola" target="_blank" rel="noopener">Пластиковый сертификат с доставкой</a></li>
           </ul>
         </li>
-        <li><a href="/about-company/about/">О бренде</a></li>
-        <li><a href="/franchise/">Франшиза</a></li>
-        <li><a href="https://accademia.aldocoppola.ru/" target="_blank" rel="noopener">Академия</a></li>
+        <li><a href="o-brende/">О бренде</a></li>
+        <li><a href="journal/">Журнал</a></li>
+        <li><a href="akademiya/">Академия</a></li>
         <li><a href="https://2muchdesign-sign.github.io/HRcareers/" target="_blank" rel="noopener">Карьера</a></li><!-- вместо «Вакансии» -->
       </ul>
     </nav>
@@ -833,77 +895,10 @@ address{font-style:normal}
   </div>
 </section>
 
-<!-- ================= О БРЕНДЕ ================= -->
-<section class="sec" id="brand" aria-labelledby="brand-h">
-  <div class="wrap">
-    <div class="brand-grid">
-      <div>
-        <p class="eyebrow">О бренде</p>
-        <h2 id="brand-h">Итальянская школа красоты в&nbsp;Москве</h2>
-      </div>
-      <div>
-        <p class="lead">Aldo Coppola — сеть итальянских центров красоты класса люкс. Первый салон Альдо Коппола открыл в&nbsp;Милане в&nbsp;1964 году, в&nbsp;Москве бренд работает с&nbsp;1996 года.</p>
-        <p class="muted">В основе — идея естественной красоты: стрижка, которая не требует долгой укладки, и авторская техника окрашивания Shatush, созданная и запатентованная Альдо Копполой. Мастера регулярно повышают квалификацию в&nbsp;Милане. В&nbsp;каждом центре работают парикмахерский зал и косметология, а несколько процедур можно совместить в&nbsp;один визит.</p>
-        <a class="link" href="/about-company/about/">История бренда</a>
-      </div>
-    </div>
-    <ul class="facts">
-      <li><b>1964</b><span>первый салон Aldo Coppola в&nbsp;Милане</span></li>
-      <li><b>1996</b><span>первый центр красоты в&nbsp;Москве</span></li>
-      <li><b>7</b><span>центров красоты в&nbsp;Москве и Московской области</span></li>
-      <li><b>до 6</b><span>услуг параллельно за один визит</span></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ================= УСЛУГИ ================= -->
-<section class="sec alt" id="services" aria-labelledby="services-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <p class="eyebrow">Услуги</p>
-        <h2 id="services-h">Парикмахерские услуги, косметология, визаж и&nbsp;ногтевой сервис в&nbsp;каждом центре</h2>
-      </div>
-    </div>
-    <div class="dirs">
-      <article class="dir">
-        <figure><img src="media/hair-hall.jpg" alt="Парикмахерский зал центра красоты Aldo Coppola" loading="lazy" width="1600" height="1066"></figure>
-        <div class="dir-body">
-          <h3>Парикмахерский зал</h3>
-          <p>Стрижки, укладки и окрашивание, включая авторскую технику Shatush. VIP-кабинеты для тех, кто ценит уединение.</p>
-          <a class="link" href="/price/">Услуги и запись</a>
-        </div>
-      </article>
-      <article class="dir">
-        <figure><img src="media/cosmetology.jpg" alt="Кабинет косметологии Aldo Coppola" loading="lazy" width="1600" height="1067"></figure>
-        <div class="dir-body">
-          <h3>Косметология</h3>
-          <p>Эстетическая, врачебная и аппаратная косметология. Авторские программы и методики последнего поколения.</p>
-          <a class="link" href="https://2muchdesign-sign.github.io/aldo-coppola-cosmetology/" target="_blank" rel="noopener">Косметология Aldo Coppola</a>
-        </div>
-      </article>
-      <article class="dir text">
-        <div class="dir-body">
-          <h3>Подарочные сертификаты</h3>
-          <p>Электронный сертификат или пластиковый — с доставкой.</p>
-          <a class="link" href="https://gift.aldocoppola.ru/" target="_blank" rel="noopener">Выбрать сертификат</a>
-        </div>
-      </article>
-      <article class="dir text" style="background:#fff;border-color:var(--line);color:var(--ink)">
-        <div class="dir-body">
-          <h3>Специальные предложения</h3>
-          <p style="color:var(--muted)">Сезонные программы и предложения центров красоты.</p>
-          <a class="link" href="/special/">Смотреть предложения</a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
 <!-- ================= НОВОСТИ (карусель) =================
      В Битриксе: компонент bitrix:news.list (инфоблок «Новости»), шаблон выводит <article class="news"> на каждый элемент.
      Фото: <img> из «Картинки для анонса». Видео: если заполнено свойство «Видео» — <video> с постером (см. закомментированный пример). -->
-<section class="sec" id="news" aria-labelledby="news-h">
+<section class="sec alt" id="news" aria-labelledby="news-h">
   <div class="wrap">
     <div class="sec-head">
       <div>
@@ -975,8 +970,76 @@ address{font-style:normal}
   <div class="wrap"><div class="car-bar" aria-hidden="true"><i id="newsBar"></i></div></div>
 </section>
 
+<!-- ================= О БРЕНДЕ ================= -->
+<section class="sec" id="brand" aria-labelledby="brand-h">
+  <div class="wrap">
+    <div class="brand-grid">
+      <div>
+        <p class="eyebrow">О бренде</p>
+        <h2 id="brand-h">Итальянская школа <span class="scribble" data-fx>красоты<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M3 13 C 40 6, 80 5, 120 8 S 180 14, 197 7"/></svg></span> в&nbsp;Москве</h2>
+        <div class="stamp" data-fx-wrap><i class="ring" data-fx aria-hidden="true"></i><p><b>30</b><span>лет в&nbsp;Москве</span></p></div>
+      </div>
+      <div>
+        <p class="lead">Aldo Coppola — сеть итальянских центров красоты класса люкс. Первый салон Альдо Коппола открыл в&nbsp;Милане в&nbsp;1964 году, в&nbsp;Москве бренд работает с&nbsp;1996 года.</p>
+        <p class="muted">В основе — идея естественной красоты: стрижка, которая не требует долгой укладки, и авторская техника окрашивания Shatush, созданная и запатентованная Альдо Копполой. Мастера регулярно повышают квалификацию в&nbsp;Милане. В&nbsp;каждом центре работают парикмахерский зал и косметология, а несколько процедур можно совместить в&nbsp;один визит.</p>
+        <a class="link" href="o-brende/">История бренда</a>
+      </div>
+    </div>
+    <ul class="facts">
+      <li><b>1964</b><span>первый салон Aldo Coppola в&nbsp;Милане</span></li>
+      <li><b>1996</b><span>первый центр красоты в&nbsp;Москве</span></li>
+      <li><b>7</b><span>центров красоты в&nbsp;Москве и Московской области</span></li>
+      <li><b>до 6</b><span>услуг параллельно за один визит</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= УСЛУГИ ================= -->
+<section class="sec alt" id="services" aria-labelledby="services-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Услуги</p>
+        <h2 id="services-h">Парикмахерские услуги, косметология, визаж и&nbsp;ногтевой сервис в&nbsp;каждом центре</h2>
+      </div>
+    </div>
+    <div class="dirs">
+      <article class="dir" data-outline>
+        <figure><img src="media/hair-hall.jpg" alt="Парикмахерский зал центра красоты Aldo Coppola" loading="lazy" width="1600" height="1066"></figure>
+        <div class="dir-body">
+          <h3>Парикмахерский зал</h3>
+          <p>Стрижки, укладки и окрашивание, включая авторскую технику Shatush. VIP-кабинеты для тех, кто ценит уединение.</p>
+          <a class="link" href="/price/">Услуги и запись</a>
+        </div>
+      </article>
+      <article class="dir" data-outline>
+        <figure><img src="media/cosmetology.jpg" alt="Кабинет косметологии Aldo Coppola" loading="lazy" width="1600" height="1067"></figure>
+        <div class="dir-body">
+          <h3>Косметология</h3>
+          <p>Эстетическая, врачебная и аппаратная косметология. Авторские программы и методики последнего поколения.</p>
+          <a class="link" href="https://2muchdesign-sign.github.io/aldo-coppola-cosmetology/" target="_blank" rel="noopener">Косметология Aldo Coppola</a>
+        </div>
+      </article>
+      <article class="dir text">
+        <div class="dir-body">
+          <h3>Подарочные сертификаты</h3>
+          <p>Электронный сертификат или пластиковый — с доставкой.</p>
+          <a class="link" href="https://gift.aldocoppola.ru/" target="_blank" rel="noopener">Выбрать сертификат</a>
+        </div>
+      </article>
+      <article class="dir text" style="background:#fff;border-color:var(--line);color:var(--ink)">
+        <div class="dir-body">
+          <h3>Специальные предложения</h3>
+          <p style="color:var(--muted)">Сезонные программы и предложения центров красоты.</p>
+          <a class="link" href="/special/">Смотреть предложения</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <!-- ================= ЦЕНТРЫ КРАСОТЫ ================= -->
-<section class="sec alt" id="salons" aria-labelledby="salons-h">
+<section class="sec" id="salons" aria-labelledby="salons-h">
   <div class="wrap">
     <div class="sec-head">
       <div>
@@ -985,68 +1048,93 @@ address{font-style:normal}
       </div>
     </div>
 
-    <h3 class="region">Москва</h3>
-    <div class="salons">
-      <article class="salon">
-        <figure><img src="media/vesna-1.jpg" alt="Центр красоты Aldo Coppola в ТЦ BoscoVesna на Новом Арбате" loading="lazy" width="1800" height="1012"><button class="tour-btn" type="button" data-tour="vesna" data-title="Видеотур: Aldo Coppola BoscoVesna" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Видеотур</button></figure>
-        <h3>BoscoVesna</h3>
-        <address>Новый Арбат, 19, стр. 1<br>ТЦ BoscoVesna, −1 этаж</address>
-        <p class="hours">Ежедневно, 10:00–22:00</p>
-        <a class="tel" href="tel:+74957837373">+7 495 783-73-73</a>
-        <a class="link book" href="https://n1237621.yclients.com/" target="_blank" rel="noopener">Записаться</a>
-      </article>
-      <article class="salon">
-        <figure><img src="media/vremena-photo-1.jpg" alt="Центр красоты Aldo Coppola в Галереях «Времена года» на Кутузовском проспекте" loading="lazy" width="1800" height="1012"></figure>
-        <h3>Времена года</h3>
-        <address>Кутузовский проспект, 48<br>Галереи «Времена года», 3 этаж</address>
-        <p class="hours">Ежедневно, 10:00–22:00</p>
-        <a class="tel" href="tel:+74957759697">+7 495 775-96-97</a>
-        <a class="link book" href="https://n1237622.yclients.com/" target="_blank" rel="noopener">Записаться</a>
-      </article>
-      <article class="salon">
-        <figure><img src="media/novinsky-photo-1.jpg" alt="Центр красоты Aldo Coppola в БЦ ВЭБ РФ на Новинском бульваре" loading="lazy" width="1800" height="1012"><button class="tour-btn" type="button" data-tour="veb" data-title="Видеотур: Aldo Coppola БЦ ВЭБ РФ" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Видеотур</button></figure>
-        <h3>БЦ ВЭБ РФ</h3>
-        <address>Новинский бульвар, 31<br>БЦ ВЭБ РФ, 2 этаж</address>
-        <p class="hours">Ежедневно, 10:00–22:00</p>
-        <a class="tel" href="tel:+74952588779">+7 495 258-87-79</a>
-        <a class="link book" href="https://n1237626.yclients.com/" target="_blank" rel="noopener">Записаться</a>
-      </article>
-      <article class="salon">
-        <figure><img src="media/lotte-1.jpg" alt="Центр красоты Aldo Coppola в Лотте Отель Москва" loading="lazy" width="1800" height="1012"></figure>
-        <h3>Лотте Отель</h3>
-        <address>Новинский бульвар, 8/2<br>Лотте Отель, −1 этаж</address>
-        <p class="hours">Ежедневно, 10:00–22:00</p>
-        <a class="tel" href="tel:+74955586188">+7 495 558-61-88</a>
-        <a class="link book" href="https://n1237625.yclients.com/" target="_blank" rel="noopener">Записаться</a>
-      </article>
-    </div>
-
-    <h3 class="region">Московская область</h3>
-    <div class="salons three">
-      <article class="salon">
-        <figure><img src="media/barvikha-photo-1.jpg" alt="Центр красоты Aldo Coppola в Барвиха Luxury Village" loading="lazy" width="1800" height="1012"><button class="tour-btn" type="button" data-tour="barvikha" data-title="Видеотур: Aldo Coppola Барвиха" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Видеотур</button></figure>
-        <h3>Барвиха</h3>
-        <address>Рублёво-Успенское шоссе, 114<br>Барвиха Luxury Village</address>
-        <p class="hours">Ежедневно, 10:00–22:00</p>
-        <a class="tel" href="tel:+74957265518">+7 495 726-55-18</a>
-        <a class="link book" href="https://n1237619.yclients.com/" target="_blank" rel="noopener">Записаться</a>
-      </article>
-      <article class="salon">
-        <figure><img src="media/zhukovka-1.jpg" alt="Центр красоты Aldo Coppola в Жуковке на Рублёво-Успенском шоссе" loading="lazy" width="1800" height="1012"><button class="tour-btn" type="button" data-tour="zhukovka" data-title="Видеотур: Aldo Coppola Жуковка" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Видеотур</button></figure>
-        <h3>Жуковка</h3>
-        <address>Рублёво-Успенское шоссе, 204<br>д. Жуковка</address>
-        <p class="hours">Ежедневно, 10:00–22:00</p>
-        <a class="tel" href="tel:+74956413110">+7 495 641-31-10</a>
-        <a class="link book" href="https://n1237624.yclients.com/" target="_blank" rel="noopener">Записаться</a>
-      </article>
-      <article class="salon">
-        <figure><img src="media/unimall-1.jpg" alt="Центр красоты Aldo Coppola в ТК «Юнимолл» на Новорижском шоссе" loading="lazy" width="1800" height="1012"><button class="tour-btn" type="button" data-tour="unimall" data-title="Видеотур: Aldo Coppola Юнимолл" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Видеотур</button></figure>
-        <h3>Юнимолл</h3>
-        <address>Новорижское шоссе, 6 км от МКАД<br>ТК «Юнимолл», 1 этаж</address>
-        <p class="hours">Ежедневно, 10:00–22:00</p>
-        <a class="tel" href="tel:+74956401877">+7 495 640-18-77</a>
-        <a class="link book" href="https://n1237627.yclients.com/" target="_blank" rel="noopener">Записаться</a>
-      </article>
+    <div class="sal" id="salList">
+      <p class="sal-region">Москва</p>
+      <details class="sal-i" name="salon">
+        <summary><span class="sal-n">BoscoVesna</span><span class="sal-s">Новый Арбат</span><span class="sal-x" aria-hidden="true"></span></summary>
+        <div class="sal-body">
+          <figure class="sal-fig" data-outline><img src="media/vesna-1.jpg" alt="Центр красоты Aldo Coppola в ТЦ BoscoVesna на Новом Арбате" loading="lazy" width="1800" height="1012"><button class="tour-btn" type="button" data-tour="vesna" data-title="Видеотур: Aldo Coppola BoscoVesna" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Видеотур</button></figure>
+          <div class="sal-info">
+            <address>Новый Арбат, 19, стр. 1<br>ТЦ BoscoVesna, −1 этаж</address>
+            <p class="hours">Ежедневно, 10:00–22:00</p>
+            <a class="tel" href="tel:+74957837373">+7 495 783-73-73</a>
+            <a class="link book" href="https://n1237621.yclients.com/" target="_blank" rel="noopener">Записаться</a>
+          </div>
+        </div>
+      </details>
+      <details class="sal-i" name="salon">
+        <summary><span class="sal-n">Времена года</span><span class="sal-s">Кутузовский проспект</span><span class="sal-x" aria-hidden="true"></span></summary>
+        <div class="sal-body">
+          <figure class="sal-fig" data-outline><img src="media/vremena-photo-1.jpg" alt="Центр красоты Aldo Coppola в Галереях «Времена года» на Кутузовском проспекте" loading="lazy" width="1800" height="1012"></figure>
+          <div class="sal-info">
+            <address>Кутузовский проспект, 48<br>Галереи «Времена года», 3 этаж</address>
+            <p class="hours">Ежедневно, 10:00–22:00</p>
+            <a class="tel" href="tel:+74957759697">+7 495 775-96-97</a>
+            <a class="link book" href="https://n1237622.yclients.com/" target="_blank" rel="noopener">Записаться</a>
+          </div>
+        </div>
+      </details>
+      <details class="sal-i" name="salon">
+        <summary><span class="sal-n">БЦ ВЭБ РФ</span><span class="sal-s">Новинский бульвар, 31</span><span class="sal-x" aria-hidden="true"></span></summary>
+        <div class="sal-body">
+          <figure class="sal-fig" data-outline><img src="media/novinsky-photo-1.jpg" alt="Центр красоты Aldo Coppola в БЦ ВЭБ РФ на Новинском бульваре" loading="lazy" width="1800" height="1012"><button class="tour-btn" type="button" data-tour="veb" data-title="Видеотур: Aldo Coppola БЦ ВЭБ РФ" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Видеотур</button></figure>
+          <div class="sal-info">
+            <address>Новинский бульвар, 31<br>БЦ ВЭБ РФ, 2 этаж</address>
+            <p class="hours">Ежедневно, 10:00–22:00</p>
+            <a class="tel" href="tel:+74952588779">+7 495 258-87-79</a>
+            <a class="link book" href="https://n1237626.yclients.com/" target="_blank" rel="noopener">Записаться</a>
+          </div>
+        </div>
+      </details>
+      <details class="sal-i" name="salon">
+        <summary><span class="sal-n">Лотте Отель</span><span class="sal-s">Новинский бульвар, 8/2</span><span class="sal-x" aria-hidden="true"></span></summary>
+        <div class="sal-body">
+          <figure class="sal-fig" data-outline><img src="media/lotte-1.jpg" alt="Центр красоты Aldo Coppola в Лотте Отель Москва" loading="lazy" width="1800" height="1012"></figure>
+          <div class="sal-info">
+            <address>Новинский бульвар, 8/2<br>Лотте Отель, −1 этаж</address>
+            <p class="hours">Ежедневно, 10:00–22:00</p>
+            <a class="tel" href="tel:+74955586188">+7 495 558-61-88</a>
+            <a class="link book" href="https://n1237625.yclients.com/" target="_blank" rel="noopener">Записаться</a>
+          </div>
+        </div>
+      </details>
+      <p class="sal-region">Московская область</p>
+      <details class="sal-i" name="salon">
+        <summary><span class="sal-n">Барвиха</span><span class="sal-s">Рублёво-Успенское ш., 114</span><span class="sal-x" aria-hidden="true"></span></summary>
+        <div class="sal-body">
+          <figure class="sal-fig" data-outline><img src="media/barvikha-photo-1.jpg" alt="Центр красоты Aldo Coppola в Барвиха Luxury Village" loading="lazy" width="1800" height="1012"><button class="tour-btn" type="button" data-tour="barvikha" data-title="Видеотур: Aldo Coppola Барвиха" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Видеотур</button></figure>
+          <div class="sal-info">
+            <address>Рублёво-Успенское шоссе, 114<br>Барвиха Luxury Village</address>
+            <p class="hours">Ежедневно, 10:00–22:00</p>
+            <a class="tel" href="tel:+74957265518">+7 495 726-55-18</a>
+            <a class="link book" href="https://n1237619.yclients.com/" target="_blank" rel="noopener">Записаться</a>
+          </div>
+        </div>
+      </details>
+      <details class="sal-i" name="salon">
+        <summary><span class="sal-n">Жуковка</span><span class="sal-s">Рублёво-Успенское ш., 204</span><span class="sal-x" aria-hidden="true"></span></summary>
+        <div class="sal-body">
+          <figure class="sal-fig" data-outline><img src="media/zhukovka-1.jpg" alt="Центр красоты Aldo Coppola в Жуковке на Рублёво-Успенском шоссе" loading="lazy" width="1800" height="1012"><button class="tour-btn" type="button" data-tour="zhukovka" data-title="Видеотур: Aldo Coppola Жуковка" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Видеотур</button></figure>
+          <div class="sal-info">
+            <address>Рублёво-Успенское шоссе, 204<br>д. Жуковка</address>
+            <p class="hours">Ежедневно, 10:00–22:00</p>
+            <a class="tel" href="tel:+74956413110">+7 495 641-31-10</a>
+            <a class="link book" href="https://n1237624.yclients.com/" target="_blank" rel="noopener">Записаться</a>
+          </div>
+        </div>
+      </details>
+      <details class="sal-i" name="salon">
+        <summary><span class="sal-n">Юнимолл</span><span class="sal-s">Новорижское ш., 6 км</span><span class="sal-x" aria-hidden="true"></span></summary>
+        <div class="sal-body">
+          <figure class="sal-fig" data-outline><img src="media/unimall-1.jpg" alt="Центр красоты Aldo Coppola в ТК «Юнимолл» на Новорижском шоссе" loading="lazy" width="1800" height="1012"><button class="tour-btn" type="button" data-tour="unimall" data-title="Видеотур: Aldo Coppola Юнимолл" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Видеотур</button></figure>
+          <div class="sal-info">
+            <address>Новорижское шоссе, 6 км от МКАД<br>ТК «Юнимолл», 1 этаж</address>
+            <p class="hours">Ежедневно, 10:00–22:00</p>
+            <a class="tel" href="tel:+74956401877">+7 495 640-18-77</a>
+            <a class="link book" href="https://n1237627.yclients.com/" target="_blank" rel="noopener">Записаться</a>
+          </div>
+        </div>
+      </details>
     </div>
 
     <div class="salons-foot">
@@ -1057,7 +1145,7 @@ address{font-style:normal}
 </section>
 
 <!-- ================= ВОПРОСЫ И ОТВЕТЫ (текст для поиска и нейросетей) ================= -->
-<section class="sec" id="faq" aria-labelledby="faq-h">
+<section class="sec alt" id="faq" aria-labelledby="faq-h">
   <div class="wrap faq-grid">
     <div>
       <p class="eyebrow">Коротко о главном</p>
@@ -1153,9 +1241,9 @@ address{font-style:normal}
       <nav aria-labelledby="f2">
         <h2 id="f2">Бренд</h2>
         <ul>
-          <li><a href="/about-company/about/">О бренде</a></li>
+          <li><a href="o-brende/">История бренда</a></li>
+          <li><a href="journal/">Журнал «Ателье»</a></li>
           <li><a href="/news/">Новости</a></li>
-          <li><a href="/articles/">Статьи</a></li>
           <li><a href="/upload/tendency_2026.pdf" target="_blank" rel="noopener">Тенденции 2026 (PDF)</a></li>
           <li><a href="/eng/art/calendars/">Art: календари и артбуки</a></li>
           <li><a href="/accessories/">Аксессуары Aldo Coppola</a></li>
@@ -1167,7 +1255,8 @@ address{font-style:normal}
         <h2 id="f3">Партнёрам и мастерам</h2>
         <ul>
           <li><a href="https://2muchdesign-sign.github.io/HRcareers/" target="_blank" rel="noopener">Карьера</a></li>
-          <li><a href="https://accademia.aldocoppola.ru/" target="_blank" rel="noopener">Академия</a></li>
+          <li><a href="akademiya/">Академия</a></li>
+          <li><a href="https://2muchdesign-sign.github.io/IndoorTV/" target="_blank" rel="noopener">Реклама на экранах в салонах</a></li>
           <li><a href="/franchise/">Франшиза</a></li>
           <li><a href="/distribution/">Дистрибьюция</a></li>
           <li><a href="/contacts-partners/">Контакты</a></li>
@@ -1232,6 +1321,36 @@ address{font-style:normal}
     burger.setAttribute('aria-expanded',open);
     burger.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');
   });
+
+
+  /* --- Центры красоты: на десктопе сразу открыт первый --- */
+  var sal=document.getElementById('salList');
+  if(sal&&matchMedia('(min-width:900px)').matches){var f=sal.querySelector('.sal-i');if(f)f.open=true}
+  if(sal)sal.addEventListener('toggle',function(e){var d=e.target;if(d.open&&d.querySelector('[data-outline]'))drawLater(d.querySelector('[data-outline]'))},true);
+
+  /* --- Движение: мазок логотипа, подчёркивание, красная линия по абрису --- */
+  var FX=window.AC_FX||'full';
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function jitter(n){return (Math.random()-.5)*n}
+  function outlinePath(w,h){ /* прямоугольник «от руки»: лёгкая неровность и нахлёст в конце */
+    var o=1,j=2.2,p=[[o+jitter(j),o+jitter(j)],[w-o+jitter(j),o+jitter(j)],[w-o+jitter(j),h-o+jitter(j)],[o+jitter(j),h-o+jitter(j)],[o+jitter(j),o+18+jitter(j)]];
+    var d='M'+p[0][0].toFixed(1)+' '+p[0][1].toFixed(1);
+    for(var i=1;i<p.length;i++){var a=p[i-1],b=p[i],mx=(a[0]+b[0])/2+jitter(j*1.4),my=(a[1]+b[1])/2+jitter(j*1.4);d+=' Q'+mx.toFixed(1)+' '+my.toFixed(1)+' '+b[0].toFixed(1)+' '+b[1].toFixed(1)}
+    return d}
+  function addOutline(el){
+    if(el.querySelector(':scope>.outline'))return;
+    var NS='http://www.w3.org/2000/svg',svg=document.createElementNS(NS,'svg'),path=document.createElementNS(NS,'path');
+    svg.setAttribute('class','outline');svg.setAttribute('aria-hidden','true');path.setAttribute('pathLength','1');svg.appendChild(path);el.appendChild(svg);
+    function size(){var r=svg.getBoundingClientRect();if(!r.width)return;svg.setAttribute('viewBox','0 0 '+r.width.toFixed(0)+' '+r.height.toFixed(0));path.setAttribute('d',outlinePath(r.width,r.height))}
+    size();if(window.ResizeObserver)new ResizeObserver(size).observe(el);
+  }
+  function drawLater(el){el.classList.remove('in');addOutline(el);requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.add('in')})})}
+  document.querySelectorAll('[data-outline]').forEach(addOutline);
+  if(FX!=='off'&&!reduce&&'IntersectionObserver' in window){
+    document.documentElement.classList.add('fx');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.35});
+    document.querySelectorAll('[data-fx],[data-outline]').forEach(function(el){io.observe(el)});
+  }else{document.querySelectorAll('[data-fx],[data-outline]').forEach(function(el){el.classList.add('in')})}
 
   /* --- Видео кампании: пауза и звук --- */
   var v=document.getElementById('campaign'),bp=document.getElementById('vPlay'),bs=document.getElementById('vSound');
