@@ -1,4 +1,4 @@
-/* Журнал «Ателье»: полоса прочтения, активный пункт оглавления, мягкое появление, прототипные ссылки. */
+/* Раздел «Статьи»: полоса прочтения, активный пункт оглавления, мягкое появление, прототипные ссылки. */
 (function(){
   if(!/(^|\.)aldocoppola\.ru$/.test(location.hostname)){
     document.querySelectorAll('a[href^="/"]').forEach(function(a){a.href='https://aldocoppola.ru'+a.getAttribute('href')});

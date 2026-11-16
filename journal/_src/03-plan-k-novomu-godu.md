@@ -12,7 +12,7 @@ cover: ny-cover.webp
 cover_alt: Девушка с новогодней укладкой на фоне ёлки
 cover_caption: Новогодняя съёмка Aldo Coppola в Лотте Отеле
 date: 2026-11-16
-author: Редакция «Ателье»
+author: Редакция Aldo Coppola
 reviewer: врач-косметолог Aldo Coppola (ФИО уточняется)
 related: smas-lifting-ili-rf-lifting,biorevitalizaciya-mezoterapiya-plazmoterapiya,spf-zimoy
 ---

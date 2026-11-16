@@ -12,7 +12,7 @@ cover: biorev-cover.webp
 cover_alt: Врач-косметолог проводит процедуру для лица
 cover_caption: Кабинет косметологии Aldo Coppola
 date: 2026-11-16
-author: Редакция «Ателье»
+author: Редакция Aldo Coppola
 reviewer: врач-косметолог Aldo Coppola (ФИО уточняется)
 related: smas-lifting-ili-rf-lifting,plan-procedur-k-novomu-godu,spf-zimoy
 ---

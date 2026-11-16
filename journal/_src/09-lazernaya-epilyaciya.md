@@ -12,7 +12,7 @@ cover: laser-cover.webp
 cover_alt: Процедура лазерной эпиляции в кабинете
 cover_caption: Процедура в кабинете косметологии Aldo Coppola
 date: 2026-11-16
-author: Редакция «Ателье»
+author: Редакция Aldo Coppola
 reviewer: врач-косметолог Aldo Coppola (ФИО уточняется)
 related: spf-zimoy,plan-procedur-k-novomu-godu,smas-lifting-ili-rf-lifting
 ---

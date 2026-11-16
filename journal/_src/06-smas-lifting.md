@@ -12,7 +12,7 @@ cover: lift-cover.webp
 cover_alt: Врач-косметолог проводит аппаратную процедуру лица
 cover_caption: Аппаратная процедура в кабинете косметологии Aldo Coppola
 date: 2026-11-16
-author: Редакция «Ателье»
+author: Редакция Aldo Coppola
 reviewer: врач-косметолог Aldo Coppola (ФИО уточняется)
 related: plan-procedur-k-novomu-godu,biorevitalizaciya-mezoterapiya-plazmoterapiya,spf-zimoy
 ---

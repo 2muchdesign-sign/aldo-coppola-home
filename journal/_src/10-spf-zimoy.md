@@ -11,7 +11,7 @@ cover: spf-cover.webp
 cover_alt: Уходовая процедура для лица в кабинете Aldo Coppola
 cover_caption: Уход для лица в кабинете косметологии Aldo Coppola
 date: 2026-11-16
-author: Редакция «Ателье»
+author: Редакция Aldo Coppola
 reviewer: врач-косметолог Aldo Coppola (ФИО уточняется)
 related: lazernaya-epilyaciya-skolko-procedur,biorevitalizaciya-mezoterapiya-plazmoterapiya,blond-uhod
 ---

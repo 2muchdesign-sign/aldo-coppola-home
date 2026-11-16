@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Сборка журнала «Ателье»: journal/_src/*.md → статичные HTML-страницы.
+"""Сборка раздела «Статьи»: journal/_src/*.md → статичные HTML-страницы.
 
 Запуск из корня репозитория:  python3 journal/_build.py
 Результат: journal/index.html (обложка), journal/{рубрика}/index.html,
@@ -14,7 +14,7 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(ROOT, '_src')
 SITE = 'https://aldocoppola.ru'
 BASE = '/journal/'
-JOURNAL = 'Ателье'
+JOURNAL = 'Статьи'
 MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 
 RUBRICS = {
@@ -231,7 +231,7 @@ def page(depth, title, desc, canonical, body, jsonld, og_image, og_type='website
 <meta name="description" content="{esc(desc)}">
 <meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="{canonical}">
-<link rel="alternate" type="application/rss+xml" title="Журнал «{JOURNAL}» — Aldo Coppola" href="{SITE}{BASE}rss.xml">
+<link rel="alternate" type="application/rss+xml" title="{JOURNAL} Aldo Coppola" href="{SITE}{BASE}rss.xml">
 <meta property="og:type" content="{og_type}"><meta property="og:site_name" content="Aldo Coppola">
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}">
 <meta property="og:url" content="{canonical}"><meta property="og:image" content="{og_image}">
@@ -247,7 +247,7 @@ def page(depth, title, desc, canonical, body, jsonld, og_image, og_type='website
 <header class="jh">
   <div class="wrap">
     <a class="jh-logo" href="{up}../" aria-label="Aldo Coppola — на главную"><img src="{up}../media/logo.png" width="44" height="44" alt="Aldo Coppola"></a>
-    <a class="jh-name" href="{up}">{JOURNAL}<small>журнал Aldo Coppola</small></a>
+    <a class="jh-name" href="{up}">{JOURNAL}<small>Aldo Coppola</small></a>
     <nav class="jh-nav" aria-label="Рубрики">{''.join(f'<a href="{up}{k}/">{v[0]}</a>' for k, v in RUBRICS.items())}</nav>
     <a class="jh-book" href="https://w2217426.yclients.com/" target="_blank" rel="noopener">Записаться</a>
   </div>
@@ -259,11 +259,11 @@ def page(depth, title, desc, canonical, body, jsonld, og_image, og_type='website
 <footer class="jf">
   <div class="wrap">
     <div class="jf-top">
-      <div><p class="jf-name">{JOURNAL}</p><p>Журнал Aldo Coppola о волосах, коже и моде. Пишем вместе с колористами, стилистами и врачами наших центров красоты.</p></div>
-      <nav aria-label="Рубрики журнала"><p class="k-h">Рубрики</p>{''.join(f'<a href="{up}{k}/">{v[0]}</a>' for k, v in RUBRICS.items())}</nav>
+      <div><p class="jf-name">{JOURNAL}</p><p>Статьи Aldo Coppola о волосах, коже и моде. Пишем вместе с колористами, стилистами и врачами наших центров красоты.</p></div>
+      <nav aria-label="Рубрики"><p class="k-h">Рубрики</p>{''.join(f'<a href="{up}{k}/">{v[0]}</a>' for k, v in RUBRICS.items())}</nav>
       <nav aria-label="Сайт"><p class="k-h">Aldo Coppola</p><a href="{up}../">Главная</a><a href="{up}../o-brende/">История бренда</a><a href="{up}../akademiya/">Академия</a><a href="{up}../#salons">Центры красоты</a><a href="https://t.me/aldocoppola" rel="noopener">Telegram</a></nav>
     </div>
-    <p class="jf-legal">© 1994–2026 Aldo Coppola Russia. Материалы журнала не заменяют консультацию специалиста. <a href="/policy/">Политика конфиденциальности</a></p>
+    <p class="jf-legal">© 1994–2026 Aldo Coppola Russia. Материалы раздела не заменяют консультацию специалиста. <a href="/policy/">Политика конфиденциальности</a></p>
   </div>
 </footer>
 <script src="{up}journal.js" defer></script>
@@ -322,7 +322,7 @@ def build():
     <h1 itemprop="headline">{title_html(a['title'])}</h1>
     <p class="dek">{esc(a['dek'])}</p>
     <ul class="meta">
-      <li>Текст: <b>{esc(a.get('author', 'Редакция «Ателье»'))}</b></li>
+      <li>Текст: <b>{esc(a.get('author', 'Редакция Aldo Coppola'))}</b></li>
       {f'<li>Проверено: <b>{esc(reviewer)}</b></li>' if reviewer else ''}
       <li><time datetime="{a['date']}" itemprop="datePublished">{ru_date(a['date'])}</time>{f' · обновлено <time datetime="{a["updated"]}" itemprop="dateModified">{ru_date(a["updated"])}</time>' if a['updated'] != a['date'] else ''}</li>
       <li>{a['read']} мин чтения</li>
@@ -347,19 +347,19 @@ def build():
         ld = {'@context': 'https://schema.org', '@graph': [
             {'@type': 'Article', 'headline': title_plain(a['title']), 'description': a['dek'], 'image': [cover_abs],
              'datePublished': a['date'], 'dateModified': a['updated'], 'inLanguage': 'ru',
-             'author': {'@type': 'Organization', 'name': 'Редакция журнала «Ателье» Aldo Coppola', 'url': SITE + BASE},
+             'author': {'@type': 'Organization', 'name': 'Редакция Aldo Coppola', 'url': SITE + BASE},
              'publisher': {'@type': 'Organization', 'name': 'Aldo Coppola', 'logo': {'@type': 'ImageObject', 'url': SITE + '/media/logo.png'}},
              'mainEntityOfPage': url, 'articleSection': RUBRICS[a['rubric']][0], 'wordCount': a['words']},
             {'@type': 'BreadcrumbList', 'itemListElement': [
                 {'@type': 'ListItem', 'position': 1, 'name': 'Aldo Coppola', 'item': SITE + '/'},
-                {'@type': 'ListItem', 'position': 2, 'name': f'Журнал «{JOURNAL}»', 'item': SITE + BASE},
+                {'@type': 'ListItem', 'position': 2, 'name': JOURNAL, 'item': SITE + BASE},
                 {'@type': 'ListItem', 'position': 3, 'name': RUBRICS[a['rubric']][0], 'item': f'{SITE}{BASE}{a["rubric"]}/'},
                 {'@type': 'ListItem', 'position': 4, 'name': title_plain(a['title']), 'item': url}]}]}
         if medical:
             ld['@graph'][0]['@type'] = 'MedicalWebPage' if False else 'Article'
         if faq:
             ld['@graph'].append({'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', x)}} for q, x in faq]})
-        title = a.get('seo_title') or f'{title_plain(a["title"])} | Журнал «{JOURNAL}» Aldo Coppola'
+        title = a.get('seo_title') or f'{title_plain(a["title"])} | {JOURNAL} Aldo Coppola'
         out = page(2, title, a.get('description', a['dek']), url, art_html, ld, cover_abs, 'article',
                    f'<meta property="article:published_time" content="{a["date"]}"><meta property="article:modified_time" content="{a["updated"]}">')
         open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(out)
@@ -372,8 +372,8 @@ def build():
     lead_cover = f'media/{lead["cover"]}'
     index_body = f'''
 <section class="jcover wrap">
-  <p class="issue"><span>Журнал Aldo Coppola</span><span>Выпуск · ноябрь 2026</span><span>{len(arts)} материалов</span></p>
-  <h1 class="jmast">{JOURNAL}<span class="sr"> — журнал Aldo Coppola о волосах, коже и моде</span></h1>
+  <p class="issue"><span>Aldo Coppola</span><span>Выпуск · ноябрь 2026</span><span>{len(arts)} материалов</span></p>
+  <h1 class="jmast">{JOURNAL}<span class="sr"> Aldo Coppola о волосах, коже и моде</span></h1>
   <p class="jlead">О волосах, коже и моде — словами колористов, стилистов и врачей наших центров красоты. Без «чудо-средств» и обещаний: что работает, сколько держится и кому подходит.</p>
   <nav class="chips" aria-label="Рубрики">{chips}</nav>
 </section>
@@ -391,11 +391,11 @@ def build():
   <div class="feed list">{''.join(card(a, 0) for a in rest)}</div>
 </section>'''
     ld = {'@context': 'https://schema.org', '@graph': [
-        {'@type': 'Blog', 'name': f'«{JOURNAL}» — журнал Aldo Coppola', 'url': SITE + BASE, 'inLanguage': 'ru',
+        {'@type': 'Blog', 'name': f'{JOURNAL} Aldo Coppola', 'url': SITE + BASE, 'inLanguage': 'ru',
          'publisher': {'@type': 'Organization', 'name': 'Aldo Coppola', 'url': SITE + '/'},
          'blogPost': [{'@type': 'BlogPosting', 'headline': title_plain(a['title']), 'url': f'{SITE}{BASE}{a["rubric"]}/{a["slug"]}/', 'datePublished': a['date']} for a in arts]}]}
     open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(
-        page(0, f'«{JOURNAL}» — журнал Aldo Coppola о волосах, коже и моде', 'Экспертные статьи колористов, стилистов и врачей-косметологов Aldo Coppola: окрашивание, уход, косметология, мода и история итальянского бренда.', SITE + BASE, index_body, ld, SITE + BASE + lead_cover))
+        page(0, f'{JOURNAL} Aldo Coppola о волосах, коже и моде', 'Экспертные статьи колористов, стилистов и врачей-косметологов Aldo Coppola: окрашивание, уход, косметология, мода и история итальянского бренда.', SITE + BASE, index_body, ld, SITE + BASE + lead_cover))
 
     # рубрики
     for k, (name, about) in RUBRICS.items():
@@ -405,19 +405,19 @@ def build():
         body = f'''
 <section class="jcover wrap small">
   <nav class="crumbs" aria-label="Хлебные крошки"><a href="../../">Aldo Coppola</a><span>/</span><a href="../">{JOURNAL}</a></nav>
-  <h1 class="jmast">{name}<span class="sr"> — рубрика журнала «{JOURNAL}»</span></h1>
+  <h1 class="jmast">{name}<span class="sr"> — рубрика раздела «{JOURNAL}» Aldo Coppola</span></h1>
   <p class="jlead">{about}</p>
   <nav class="chips" aria-label="Рубрики">{chips}</nav>
 </section>
 <section class="wrap"><div class="feed list">{''.join(card(a, 1) for a in items) or '<p>Материалы скоро появятся.</p>'}</div></section>'''
-        ld = {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': f'{name} — журнал «{JOURNAL}»', 'url': f'{SITE}{BASE}{k}/'}
+        ld = {'@context': 'https://schema.org', '@type': 'CollectionPage', 'name': f'{name} — {JOURNAL.lower()} Aldo Coppola', 'url': f'{SITE}{BASE}{k}/'}
         open(os.path.join(d, 'index.html'), 'w', encoding='utf-8').write(
-            page(1, f'{name} — журнал «{JOURNAL}» Aldo Coppola', f'{about} Статьи рубрики «{name}» журнала Aldo Coppola.', f'{SITE}{BASE}{k}/', body, ld, SITE + '/media/og-home.jpg'))
+            page(1, f'{name} — {JOURNAL.lower()} Aldo Coppola', f'{about} Статьи рубрики «{name}» на сайте Aldo Coppola.', f'{SITE}{BASE}{k}/', body, ld, SITE + '/media/og-home.jpg'))
 
     # RSS и sitemap
     now = datetime.datetime.now(datetime.timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')
     items = ''.join(f'<item><title>{esc(title_plain(a["title"]))}</title><link>{SITE}{BASE}{a["rubric"]}/{a["slug"]}/</link><guid>{SITE}{BASE}{a["rubric"]}/{a["slug"]}/</guid><pubDate>{datetime.datetime.fromisoformat(a["date"]).strftime("%a, %d %b %Y 09:00:00 +0300")}</pubDate><description>{esc(a["dek"])}</description></item>' for a in arts)
-    open(os.path.join(ROOT, 'rss.xml'), 'w', encoding='utf-8').write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Журнал «{JOURNAL}» — Aldo Coppola</title><link>{SITE}{BASE}</link><description>О волосах, коже и моде</description><language>ru</language><lastBuildDate>{now}</lastBuildDate>{items}</channel></rss>')
+    open(os.path.join(ROOT, 'rss.xml'), 'w', encoding='utf-8').write(f'<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>{JOURNAL} Aldo Coppola</title><link>{SITE}{BASE}</link><description>О волосах, коже и моде</description><language>ru</language><lastBuildDate>{now}</lastBuildDate>{items}</channel></rss>')
     urls = [SITE + BASE] + [f'{SITE}{BASE}{k}/' for k in RUBRICS] + [f'{SITE}{BASE}{a["rubric"]}/{a["slug"]}/' for a in arts]
     lm = {f'{SITE}{BASE}{a["rubric"]}/{a["slug"]}/': a['updated'] for a in arts}
     open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8').write('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + ''.join(f'<url><loc>{u}</loc>' + (f'<lastmod>{lm[u]}</lastmod>' if u in lm else '') + '</url>' for u in urls) + '</urlset>')
