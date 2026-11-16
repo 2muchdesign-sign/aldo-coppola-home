@@ -49,7 +49,9 @@ html{background:var(--ivory);-webkit-text-size-adjust:100%;scroll-behavior:smoot
 body{margin:0;color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;overflow-x:hidden;background:transparent}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
-h1,h2,h3{margin:0;font-family:var(--display);font-weight:500;line-height:1.08;letter-spacing:-.012em;text-wrap:balance}
+/* Заголовки — структурная система (по мотивам Camper & Nicholsons): H1/H2 заглавными в Manrope 500, ровные строки, без курсива и цветных вставок */
+h3{margin:0;font-family:var(--display);font-weight:500;line-height:1.08;letter-spacing:-.012em;text-wrap:balance}
+h1,h2{margin:0;font-family:var(--sans);font-weight:500;line-height:1.14;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
 p{margin:0}
 ul,ol{margin:0;padding:0;list-style:none}
 :focus-visible{outline:2px solid var(--red);outline-offset:3px}
@@ -57,6 +59,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .kicker{font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
 .kicker.grey{color:var(--muted)}
 .it{font-family:var(--display);font-style:italic;font-weight:400;color:var(--red)}
+h1 em,h2 em,h1 .it,h2 .it{font-family:inherit;font-style:normal;font-weight:inherit;color:inherit;letter-spacing:inherit}
+
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;font-size:13px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;background:var(--red);color:#fff;transition:background .25s}
 .btn:hover{background:var(--red-deep)}
 .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--ink)}
@@ -88,8 +92,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .crumbs{font-size:13px;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}
 .crumbs a{border-bottom:1px solid var(--line)}
 .issue{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:18px;padding-bottom:12px;border-bottom:1px solid var(--ink);font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
-.mast{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0 .25em;margin-top:clamp(14px,2vw,22px);font-size:clamp(54px,13.4vw,196px);line-height:.92;letter-spacing:-.03em}
-.mast .it{letter-spacing:-.035em}
+.mast{display:block;margin-top:clamp(18px,2.4vw,30px);font-size:clamp(32px,6.4vw,88px);line-height:1.08}
+.mast span{display:block}
 .cover-lead{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);margin-top:clamp(26px,4vw,52px);align-items:start}
 .cover-lead p{font-size:clamp(19px,1.7vw,23px);line-height:1.5}
 .cover-lead .note{font-size:15px;color:var(--muted);margin-top:14px}
@@ -100,12 +104,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .door:hover img{transform:scale(1.035)}
 .door-b{padding:16px 16px 20px;display:grid;gap:6px}
 .door-b .kicker{font-size:11px}
-.door-b h2{font-size:clamp(22px,2.1vw,30px)}
+.door-b h2{font-size:clamp(16px,1.5vw,21px)}
 .door-b p{font-size:14.5px;color:var(--muted);line-height:1.45}
 .door-b .go{margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
 .door::after{content:"";position:absolute;inset:0;border:1px solid var(--line);pointer-events:none}
 @media (max-width:860px){.cover-lead{grid-template-columns:1fr}}
-@media (max-width:420px){.door-b{padding:12px 12px 16px}.door-b p{display:none}.door-b h2{font-size:20px}}
+@media (max-width:420px){.door-b{padding:12px 12px 16px}.door-b p{display:none}.door-b h2{font-size:15px}}
 
 /* цитата */
 .quote{padding-block:clamp(56px,8vw,120px)}
@@ -118,7 +122,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .part{padding-block:clamp(56px,7vw,104px) clamp(24px,3vw,40px);border-top:1px solid var(--ink)}
 .part-h{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(20px,4vw,64px);align-items:end}
 .part-n{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(64px,9vw,140px);line-height:.8;color:var(--red)}
-.part-h h2{font-size:clamp(40px,6vw,92px);line-height:.98}
+.part-h h2{font-size:clamp(26px,3.6vw,52px);line-height:1.1}
 .part-h p{margin-top:16px;max-width:36em;font-size:clamp(17px,1.4vw,20px);color:var(--muted)}
 @media (max-width:760px){.part-h{grid-template-columns:1fr}}
 
@@ -220,7 +224,7 @@ details.more .more-b{padding-bottom:16px;display:grid;gap:12px;color:var(--muted
 /* финал */
 .end{background:var(--red);color:#fff;padding-block:clamp(56px,7vw,104px)}
 .end .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px}
-.end h2{font-size:clamp(34px,4.4vw,64px);max-width:14em}
+.end h2{font-size:clamp(23px,2.8vw,42px);max-width:20em}
 .end .btn{background:#fff;color:var(--ink)}
 .end .btn:hover{background:var(--ink);color:#fff}
 .end .link{color:#fff}
@@ -258,7 +262,7 @@ details.more .more-b{padding-bottom:16px;display:grid;gap:12px;color:var(--muted
   <div class="wrap">
     <nav class="crumbs" aria-label="Хлебные крошки"><a href="../">Главная</a><span>/</span><span>История бренда</span></nav>
     <div class="issue"><span>Aldo Coppola · история</span><span>Милан 1964 — Москва 1996</span></div>
-    <h1 class="mast"><span>История</span> <span class="it">Aldo Coppola</span></h1>
+    <h1 class="mast"><span>История</span> <span class="it">Aldo&nbsp;Coppola</span></h1>
     <div class="cover-lead">
       <div>
         <p>У этого имени две истории. Одна началась в Милане, где маэстро Альдо Коппола сделал парикмахера соавтором моды. Вторая идёт уже тридцать лет в Москве: итальянская школа, которая стала московской.</p>

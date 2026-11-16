@@ -505,7 +505,11 @@ body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);f
 img,video{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.06;margin:0;letter-spacing:-.005em}
+/* Заголовки — структурная система (по мотивам Camper & Nicholsons): H1/H2 заглавными в Manrope 500, ровные строки, без курсива и цветных вставок */
+h3{font-family:var(--serif);font-weight:500;line-height:1.06;margin:0;letter-spacing:-.005em}
+h1,h2{font-family:var(--sans);font-weight:500;line-height:1.14;margin:0;letter-spacing:.01em;text-transform:uppercase}
+h1 em,h2 em,h1 .it,h2 .it{font-family:inherit;font-style:normal;font-weight:inherit;color:inherit;letter-spacing:inherit}
+
 p{margin:0}
 ul{margin:0;padding:0;list-style:none}
 address{font-style:normal}
@@ -559,20 +563,20 @@ address{font-style:normal}
 .hero-ctl svg{width:19px;height:19px;fill:#fff}
 .hero-intro{border-bottom:1px solid var(--line)}
 .hero-intro .wrap{padding-top:clamp(26px,3vw,40px);padding-bottom:clamp(26px,3vw,40px)}
-.hero h1{font-size:clamp(30px,3.7vw,58px);max-width:17em;margin-top:12px}
+.hero h1{font-size:clamp(25px,3vw,44px);max-width:20em;margin-top:12px}
 .hero-note{margin-top:14px;padding-right:130px;font-size:16px;line-height:1.5;color:var(--muted)}/* отступ справа — под кнопку виджета */
 
 /* ===== Секции ===== */
 .sec{padding:clamp(64px,9vw,128px) 0}
 .sec.alt{background:var(--ivory)}
 .sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 40px;margin-bottom:clamp(32px,4.5vw,60px)}
-.sec-head h2{font-size:clamp(34px,4.4vw,64px);margin-top:14px;max-width:14em}
+.sec-head h2{font-size:clamp(23px,2.8vw,42px);margin-top:14px;max-width:20em}
 .lead{font-size:clamp(19px,1.6vw,22px);line-height:1.6;color:var(--ink)}
 .muted{color:var(--muted)}
 
 /* О бренде */
 .brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start}
-.brand-grid h2{font-size:clamp(34px,4.4vw,64px);margin-top:14px}
+.brand-grid h2{font-size:clamp(23px,2.8vw,42px);margin-top:14px}
 .brand-grid .lead+p{margin-top:20px}
 .brand-grid .link{margin-top:34px}
 .facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(48px,6vw,88px);border-top:1px solid var(--line)}
@@ -635,7 +639,7 @@ address{font-style:normal}
 .tour{width:min(1100px,calc(100vw - 32px));max-width:none;padding:0;border:0;background:#fff;color:var(--ink)}
 .tour::backdrop{background:rgba(20,20,20,.72)}
 .tour-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 14px 14px 22px}
-.tour-head h2{font-size:clamp(22px,2vw,28px)}
+.tour-head h2{font-size:clamp(17px,1.5vw,21px)}
 .tour-close{flex:none;width:44px;height:44px;font-size:30px;line-height:1;font-family:var(--serif)}
 .tour-close:hover{color:var(--red)}
 .tour video{width:100%;aspect-ratio:16/9;max-height:calc(100vh - 140px);background:var(--ink)}
@@ -713,7 +717,7 @@ address{font-style:normal}
 
 /* ===== Вопросы ===== */
 .faq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px)}
-.faq-grid h2{font-size:clamp(34px,4.4vw,64px);margin-top:14px}
+.faq-grid h2{font-size:clamp(23px,2.8vw,42px);margin-top:14px}
 .faq details{border-top:1px solid var(--line)}
 .faq details:last-child{border-bottom:1px solid var(--line)}
 .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;padding:26px 0}
@@ -733,7 +737,7 @@ address{font-style:normal}
 /* ===== Запись ===== */
 .cta{background:var(--red);color:#fff;padding:clamp(56px,7vw,104px) 0}
 .cta .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:32px 48px}
-.cta h2{font-size:clamp(34px,4.4vw,64px);max-width:12em}
+.cta h2{font-size:clamp(23px,2.8vw,42px);max-width:18em}
 .cta p{margin-top:16px;font-size:19px;opacity:.92}
 .cta-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px}
 .cta .btn{background:#fff;border-color:#fff;color:var(--ink)}
@@ -889,7 +893,7 @@ address{font-style:normal}
   <div class="hero-intro">
     <div class="wrap">
       <p class="eyebrow">Милан — Москва · с 1996 года</p>
-      <h1>Aldo Coppola — итальянские центры красоты и&nbsp;косметологии</h1>
+      <h1>Aldo&nbsp;Coppola — итальянские центры красоты и&nbsp;косметологии</h1>
       <p class="hero-note">Семь центров красоты в&nbsp;Москве и Московской области · ежедневно с&nbsp;10:00 до&nbsp;22:00</p>
     </div>
   </div>
@@ -903,7 +907,7 @@ address{font-style:normal}
     <div class="sec-head">
       <div>
         <p class="eyebrow">Новости</p>
-        <h2 id="news-h">События и&nbsp;новости Aldo Coppola</h2>
+        <h2 id="news-h">События и&nbsp;новости Aldo&nbsp;Coppola</h2>
       </div>
       <div class="car-nav">
         <a class="link" href="/news/">Все новости</a>

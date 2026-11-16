@@ -53,8 +53,12 @@ body{margin:0;color:var(--ink);font-family:var(--sans);font-size:17px;line-heigh
 img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-h1,h2,h3{margin:0;font-family:var(--display);font-weight:500;line-height:1.06;letter-spacing:-.012em;text-wrap:balance}
+/* Заголовки — структурная система (по мотивам Camper & Nicholsons): H1/H2 заглавными в Manrope 500, ровные строки, без курсива и цветных вставок */
+h3{margin:0;font-family:var(--display);font-weight:500;line-height:1.06;letter-spacing:-.012em;text-wrap:balance}
+h1,h2{margin:0;font-family:var(--sans);font-weight:500;line-height:1.14;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
 h1 em,h2 em,h3 em,.it{font-style:italic;font-weight:400;color:var(--red)}
+h1 em,h2 em,h1 .it,h2 .it{font-family:inherit;font-style:normal;font-weight:inherit;color:inherit;letter-spacing:inherit}
+
 p{margin:0}
 ul,ol{margin:0;padding:0;list-style:none}
 :focus-visible{outline:2px solid var(--red);outline-offset:3px}
@@ -89,7 +93,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .crumbs{font-size:13px;color:var(--muted);display:flex;gap:8px}
 .crumbs a{border-bottom:1px solid var(--line)}
 .issue{display:flex;justify-content:space-between;gap:8px 16px;flex-wrap:wrap;margin-top:16px;padding-bottom:10px;border-bottom:1px solid var(--ink);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}
-.mast{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 .2em;margin-top:clamp(10px,1.6vw,20px);font-size:clamp(58px,13.6vw,200px);line-height:.9;letter-spacing:-.03em}
+.mast{display:block;margin-top:clamp(18px,2.4vw,30px);font-size:clamp(32px,6.4vw,88px);line-height:1.08}
+.mast>*{display:block}
 .hero-g{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:clamp(22px,4vw,64px);margin-top:clamp(22px,3.4vw,44px);align-items:end}
 .hero-g .lead{font-size:clamp(18px,1.6vw,22px);line-height:1.5;background:rgba(255,255,255,.72)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
@@ -103,7 +108,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* секции */
 .sec{padding-block:clamp(48px,7vw,104px)}
 .sec-h{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,4vw,64px);align-items:end;margin-bottom:clamp(22px,3.4vw,44px)}
-.sec-h h2{font-size:clamp(36px,4.8vw,72px)}
+.sec-h h2{font-size:clamp(23px,2.8vw,42px)}
 .sec-h p{font-size:16.5px;color:var(--muted);max-width:36em;background:rgba(255,255,255,.7)}
 @media (max-width:860px){.sec-h{grid-template-columns:1fr}}
 .panel{background:#fff;border:1px solid var(--line)}
@@ -228,7 +233,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 .contact{background:var(--red);color:#fff;padding-block:clamp(48px,6vw,88px);position:relative;z-index:1}
 .contact .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:24px;align-items:end}
-.contact h2{font-size:clamp(34px,4.4vw,64px)}
+.contact h2{font-size:clamp(23px,2.8vw,42px)}
 .contact h2 em{color:#fff}
 .contact .cl{display:grid;gap:10px;font-size:20px;font-weight:600}
 .contact .cl a{border-bottom:1px solid rgba(255,255,255,.5);width:fit-content}
@@ -264,7 +269,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <div class="wrap">
     <nav class="crumbs" aria-label="Хлебные крошки"><a href="../">Главная</a><span>/</span><span>Академия</span></nav>
     <div class="issue"><span>Международная Академия Aldo Coppola в России</span><span>Москва</span></div>
-    <h1 class="mast"><span>Академия</span> <em>Aldo Coppola</em></h1>
+    <h1 class="mast"><span>Академия</span> <em>Aldo&nbsp;Coppola</em></h1>
     <div class="hero-g">
       <div>
         <p class="lead">Итальянские техники стрижки, окрашивания и укладки — для парикмахеров, которые хотят работать в философии Aldo Coppola. Учат арт-директора из Италии и стилисты, прошедшие обучение в Милане.</p>
@@ -432,7 +437,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <section class="sec" aria-labelledby="w-h" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-h"><div><p class="k">Работы</p><h2 id="w-h">Почерк <em>Aldo Coppola</em></h2></div><p>Стрижки, цвет и укладки из коллекций бренда и мастер-классов Академии. Листайте вправо.</p></div>
+    <div class="sec-h"><div><p class="k">Работы</p><h2 id="w-h">Почерк <em>Aldo&nbsp;Coppola</em></h2></div><p>Стрижки, цвет и укладки из коллекций бренда и мастер-классов Академии. Листайте вправо.</p></div>
     <div class="works" tabindex="0" role="region" aria-label="Работы мастеров Aldo Coppola, листается вправо">
       <figure><img src="media/c-4.webp" alt="Длинные волосы с мягкой чёлкой, чёрно-белый кадр" loading="lazy" width="1400" height="1298"><figcaption>Коллекция Aldo Coppola</figcaption></figure>
       <figure><img src="media/o-cut-acc.webp" alt="Стрижка с фирменным аксессуаром Aldo Coppola" loading="lazy"><figcaption>Стрижка на аксессуаре</figcaption></figure>
