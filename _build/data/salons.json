@@ -22,7 +22,8 @@
    "features": [],
    "cosmetology": true,
    "tour": "vesna",
-   "photos": 3
+   "photos": 3,
+   "branch": 1132897
   },
   {
    "slug": "vremena-goda",
@@ -43,7 +44,8 @@
    "features": [],
    "cosmetology": true,
    "tour": null,
-   "photos": 8
+   "photos": 8,
+   "branch": 1132899
   },
   {
    "slug": "veb-rf",
@@ -64,7 +66,8 @@
    "features": [],
    "cosmetology": true,
    "tour": "veb",
-   "photos": 8
+   "photos": 8,
+   "branch": 1132902
   },
   {
    "slug": "lotte",
@@ -86,7 +89,8 @@
    "cosmetology": false,
    "nearest": "veb-rf",
    "tour": null,
-   "photos": 7
+   "photos": 7,
+   "branch": 1132901
   },
   {
    "slug": "zhukovka",
@@ -112,7 +116,8 @@
    ],
    "cosmetology": true,
    "tour": "zhukovka",
-   "photos": 8
+   "photos": 8,
+   "branch": 1132900
   },
   {
    "slug": "barvikha",
@@ -139,7 +144,8 @@
    ],
    "cosmetology": true,
    "tour": "barvikha",
-   "photos": 8
+   "photos": 8,
+   "branch": 1132895
   },
   {
    "slug": "unimall",
@@ -160,7 +166,8 @@
    "features": [],
    "cosmetology": true,
    "tour": "unimall",
-   "photos": 8
+   "photos": 8,
+   "branch": 1132903
   }
  ],
  "regions": [
