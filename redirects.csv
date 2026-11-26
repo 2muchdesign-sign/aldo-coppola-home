@@ -1,0 +1,33 @@
+old_url;new_url;code;comment
+https://aldocoppola.ru/beauty-centers/;/salony/;301;including any ?country= parameter
+https://aldocoppola.ru/price/;/uslugi/;301;services hub instead of booking widget
+https://aldocoppola.ru/price/parikmaherskie-uslugi/;/uslugi/volosy/;301;
+https://aldocoppola.ru/price/parikmaherskie-uslugi/{usluga}/;/uslugi/volosy/{usluga}/;301;28 former services one-to-one; no match -> /uslugi/volosy/
+https://aldocoppola.ru/price/face/*;/kosmetologiya/uhody/;301;or matching procedure page
+https://aldocoppola.ru/price/inject/*;/kosmetologiya/inekcii/;301;
+https://aldocoppola.ru/price/vebrf/*;/salony/veb-rf/;301;salon price list lives on salon page
+https://aldocoppola.ru/about-company/about/;/o-brende/;301;
+https://aldocoppola.ru/articles/;/stati/;301;
+https://aldocoppola.ru/articles/{article}/;/stati/{rubrika}/{slug}/;301;live articles moved, outdated -> 410
+https://aldocoppola.ru/career/;/karera/;301;
+https://aldocoppola.ru/eng/art/calendars/;/o-brende/art/;301;
+https://aldocoppola.ru/eng/*;;410;66 archive URLs 2013-2014
+https://aldocoppola.ru/eng/about-company.pdf;/eng/about-company.pdf;200;file stays, linked from /en/
+https://aldocoppola.ru/special/;/special/;200;same URL, new layout
+https://aldocoppola.ru/loyalty/;/loyalty/;200;
+https://aldocoppola.ru/accessories/;/accessories/;200;
+https://aldocoppola.ru/news/;/news/;200;outdated news items -> 410
+https://aldocoppola.ru/franchise/;/franchise/;200;remove canonical to tilda.ws
+https://aldocoppola.ru/distribution/;/distribution/;200;
+https://aldocoppola.ru/contacts-partners/;/contacts-partners/;200;
+https://aldocoppola.ru/policy/;/policy/;200;
+https://aldocoppola.ru/policy-cookies/;/policy-cookies/;200;
+https://aldocoppola.ru/internet-acquiring/;/internet-acquiring/;200;
+https://aldocoppola.ru/sitemap/;/sitemap/;200;
+https://aldocoppola.ru/upload/tendency_2026.pdf;/upload/tendency_2026.pdf;200;footer link now goes to /tendencii-2026/
+https://cosmetology.aldocoppola.ru/;https://aldocoppola.ru/kosmetologiya/;301;check separately
+https://cosmetology.aldocoppola.ru/topstylist;https://aldocoppola.ru/karera/top-stilist/;301;
+https://cosmetology.aldocoppola.ru/indoortv;https://aldocoppola.ru/reklama-v-salonah/;301;
+https://cosmetology.aldocoppola.ru/*;https://aldocoppola.ru/kosmetologiya/;301;or matching procedure
+https://accademia.aldocoppola.ru/*;https://aldocoppola.ru/akademiya/;301;
+https://devices.aldocoppola.ru/*;https://aldocoppola.ru/karera/;301;including /page1478292.html
