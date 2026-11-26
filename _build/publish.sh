@@ -28,6 +28,7 @@ rm -rf "$TMP"
 SRC=$(gh api "repos/$REPO/pages" --jq '.source.branch' 2>/dev/null || echo none)
 if [[ "$SRC" != "gh-pages" ]]; then
   gh api -X PUT "repos/$REPO/pages" -f "source[branch]=gh-pages" -f "source[path]=/" >/dev/null
+  gh api -X POST "repos/$REPO/pages/builds" >/dev/null   # после смены источника сборка сама не запускается
   echo "Pages переключены на ветку gh-pages"
 fi
 echo "Опубликовано: https://2muchdesign-sign.github.io/aldo-coppola-home/"
