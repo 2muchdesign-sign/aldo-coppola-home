@@ -223,7 +223,7 @@ def index_page():
 </section>
 <section class="sl-sec wrap" aria-labelledby="rg-h">
   <h2 id="rg-h">Салоны в регионах</h2>
-  <p class="sl-about"><span>Aldo Coppola работает в Краснодаре, Новосибирске, Перми, Ростове-на-Дону, Владивостоке, Махачкале, Астане и Дубае.</span></p>
+  <p class="sl-about"><span>Aldo Coppola работает в Краснодаре, Сочи, Новосибирске, Перми, Ростове-на-Дону, Махачкале и Астане.</span></p>
   <p class="sl-more"><a class="sl-link" href="/salony/regiony/">Адреса и телефоны</a></p>
 </section>
 <section class="sl-sec wrap" aria-labelledby="doc-h">
@@ -249,7 +249,7 @@ def regions_page():
     body = f'''<div class="wrap">
   {crumbs([("Центры красоты", "/salony/"), ("Регионы", None)])}
   <header class="sl-head">
-    <p class="eyebrow">Россия, Казахстан, ОАЭ</p>
+    <p class="eyebrow">Россия и Казахстан</p>
     <h1>Aldo Coppola в регионах</h1>
     <p class="sl-tagline">Центры красоты партнёров Aldo Coppola. Запись и цены — по телефону салона.</p>
   </header>
@@ -259,7 +259,7 @@ def regions_page():
     items = [('Центры красоты', '/salony/'), ('Регионы', '/salony/regiony/')]
     ld = {'@context': 'https://schema.org', '@graph': [bc_ld(items)]}
     return page('/salony/regiony/', 'Aldo Coppola в регионах — адреса центров красоты',
-                'Центры красоты Aldo Coppola в Краснодаре, Новосибирске, Перми, Ростове-на-Дону, Владивостоке, Махачкале, Астане и Дубае.', body, ld)
+                'Центры красоты Aldo Coppola в Краснодаре, Сочи, Новосибирске, Перми, Ростове-на-Дону, Махачкале и Астане.', body, ld)
 
 def write(rel, s):
     p = os.path.join(OUT, rel)

@@ -69,17 +69,6 @@ OWN_BAR = ('o-brende', 'akademiya', 'stati', 'karera', 'reklama-v-salonah', 'kos
 # ------------------------------------------------------------------ заглушки разделов (этап 2 заменит их страницами)
 # путь: (заголовок H1, что будет на странице, старый адрес на действующем сайте или None)
 STUBS = {
-    '/news/': ('Новости', 'Новости сети: открытия, показы, обучение мастеров, новые услуги.', '/news/'),
-    '/tendencii-2026/': ('Тенденции 2026', 'Тенденции парикмахерского искусства 2026 года от Академии Aldo Coppola. Полная версия — в PDF.', '/upload/tendency_2026.pdf'),
-    '/o-brende/art/': ('Art: календари и артбуки', 'Арт-календари Aldo Coppola 1990–2007 годов и артбуки Luna, Metamorfosi, Elementi, Natura Magica.', '/eng/art/calendars/'),
-    '/accessories/': ('Аксессуары Aldo Coppola', 'Расчёски, щётки и аксессуары для волос Aldo Coppola.', '/accessories/'),
-    '/franchise/': ('Франшиза', 'Как открыть центр красоты Aldo Coppola в своём городе: формат, требования, поддержка, контакты отдела развития.', '/franchise/'),
-    '/distribution/': ('Дистрибьюция', 'Профессиональная косметика Aldo Coppola для салонов: линейки, условия сотрудничества, контакты.', '/distribution/'),
-    '/contacts-partners/': ('Контакты для партнёров', 'Контакты для партнёров, прессы, дистрибьюторов и франчайзи.', '/contacts-partners/'),
-    '/policy/': ('Политика конфиденциальности', 'Как Aldo Coppola обрабатывает и защищает персональные данные клиентов.', '/policy/'),
-    '/policy-cookies/': ('Политика cookie', 'Какие файлы cookie использует сайт и как ими управлять.', '/policy-cookies/'),
-    '/internet-acquiring/': ('Эквайринг', 'Оплата банковской картой на сайте: правила, безопасность платежей, возврат.', '/internet-acquiring/'),
-    '/en/': ('Aldo Coppola in English', 'About Aldo Coppola Russia: Italian beauty centres in Moscow since 1996. The company profile is available as a PDF.', '/eng/about-company.pdf'),
 }
 
 # ------------------------------------------------------------------ старые адреса прототипов и сайта → новые
@@ -97,9 +86,9 @@ LINK_EXACT = {    # адрес целиком (без #якоря) → новы�
     '/price/': '/uslugi/', '/career/': '/karera/', '/about-company/about/': '/o-brende/', '/articles/': '/stati/',
     '/eng/art/calendars/': '/o-brende/art/', '/upload/tendency_2026.pdf': '/tendencii-2026/', '/eng/about-company.pdf': '/en/',
     '/journal/': '/stati/',
+    '/news/6182/': 'https://aldocoppola.ru/news/6182/',  # новости нет в веб-архиве — текст взять с сайта при переносе
 }
 LINK_REGEX = [    # пока раздел не перенесён — ссылка на действующий сайт
-    (re.compile(r'^/news/(\d+)/$'), SITE + r'/news/\1/'),
 ]
 # адреса, которые на новом сайте отдают переадресацию (на Битриксе — 301 из redirects.csv)
 REDIRECT_PAGES = {'/beauty-centers/': '/salony/', '/price/': '/uslugi/', '/career/': '/karera/', '/about-company/about/': '/o-brende/',
@@ -346,6 +335,7 @@ def build_stati():
     subprocess.run([sys.executable, os.path.join(HERE, 'specialisty.py')], check=True, cwd=HERE)
     subprocess.run([sys.executable, os.path.join(HERE, 'uslugi.py')], check=True, cwd=HERE)
     subprocess.run([sys.executable, os.path.join(HERE, 'special.py')], check=True, cwd=HERE)
+    subprocess.run([sys.executable, os.path.join(HERE, 'pages.py')], check=True, cwd=HERE)
 
 def build_kosm():
     if SKIP_KOSM and os.path.isdir(KOSM_CACHE):
