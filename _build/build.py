@@ -70,7 +70,6 @@ OWN_BAR = ('o-brende', 'akademiya', 'stati', 'karera', 'reklama-v-salonah', 'kos
 # путь: (заголовок H1, что будет на странице, старый адрес на действующем сайте или None)
 STUBS = {
     '/uslugi/': ('Услуги и цены', 'Все услуги по направлениям: волосы, ногти, брови и ресницы, макияж, перманент, эпиляция, услуги для мужчин. У каждой услуги — цена по салонам и запись сразу на неё.', '/price/'),
-    '/specialisty/': ('Специалисты', 'Стилисты, колористы и врачи-косметологи Aldo Coppola: фото, опыт, салон, услуги и статьи автора.', None),
     '/special/': ('Спецпредложения', 'Действующие акции и предложения салонов Aldo Coppola с условиями и сроками.', '/special/'),
     '/loyalty/': ('Система лояльности', 'Как копить и тратить бонусы, уровни карты и привилегии постоянных клиентов.', '/loyalty/'),
     '/news/': ('Новости', 'Новости сети: открытия, показы, обучение мастеров, новые услуги.', '/news/'),
@@ -347,6 +346,7 @@ def url_path(rel):
 def build_stati():
     subprocess.run([sys.executable, os.path.join(HERE, 'stati.py')], check=True)
     subprocess.run([sys.executable, os.path.join(HERE, 'salony.py')], check=True)
+    subprocess.run([sys.executable, os.path.join(HERE, 'specialisty.py')], check=True, cwd=HERE)
 
 def build_kosm():
     if SKIP_KOSM and os.path.isdir(KOSM_CACHE):

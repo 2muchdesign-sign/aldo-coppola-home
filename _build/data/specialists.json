@@ -1,0 +1,184 @@
+{
+ "_about": "Специалисты Aldo Coppola — источник для /specialisty/. Тексты: страница Академии (утверждена) и макеты соцсетей в Figma. publish:false — данные из архива соцсетей, нужно подтверждение, что специалист работает и согласен на публикацию. Фото — путь от корня сайта или null.",
+ "groups": [
+  [
+   "art",
+   "Арт-директора и преподаватели Академии"
+  ],
+  [
+   "doctor",
+   "Врачи-косметологи"
+  ],
+  [
+   "body",
+   "Эстетика тела"
+  ]
+ ],
+ "people": [
+  {
+   "slug": "alberto-sanvido",
+   "name": "Альберто Санвидо",
+   "group": "art",
+   "role": "Арт-директор",
+   "salon": "zhukovka",
+   "photo": "/akademiya/media/t-sanvido.webp",
+   "lead": "Окончил профессиональную школу парикмахерского искусства в Милане, десять лет работал в Aldo Coppola Milan и около десяти лет — в Москве.",
+   "facts": [
+    "Итальянский арт-директор флагманского центра красоты Aldo Coppola в Жуковке"
+   ],
+   "work": [
+    "Стрижки и окрашивание на аксессуарах Aldo Coppola"
+   ],
+   "academy": "Тренинг Prive: стрижки и окрашивание на аксессуарах",
+   "publish": true,
+   "source": "/akademiya/, Figma 1621:152"
+  },
+  {
+   "slug": "dzhuzeppe-kastaldi",
+   "name": "Джузеппе Кастальди",
+   "group": "art",
+   "role": "Арт-директор",
+   "salon": "vremena-goda",
+   "photo": "/akademiya/media/t-castaldi.webp",
+   "lead": "Начал карьеру в Aldo Coppola в Италии в 13 лет, работал в Aldo Coppola London и Monaco, больше десяти лет — в Aldo Coppola Russia.",
+   "facts": [
+    "Участвует в разработке новых тенденций бренда"
+   ],
+   "work": [
+    "Модные стрижки по тенденциям сезона"
+   ],
+   "academy": "Тренинг «Тренды модных стрижек»",
+   "publish": true,
+   "source": "/akademiya/"
+  },
+  {
+   "slug": "yanina-kulakova",
+   "name": "Янина Кулакова",
+   "group": "art",
+   "role": "Арт-директор",
+   "salon": "veb-rf",
+   "photo": "/akademiya/media/t-kulakova.webp",
+   "photo_contain": true,
+   "lead": "Училась в Академии Aldo Coppola в Милане. С командой бренда создавала образы на показах Giorgio Armani, Dsquared2, Valentino, Richmond и для журналов Tatler, Vogue, Harper’s Bazaar, Elle.",
+   "facts": [],
+   "work": [
+    "Вечерние причёски и укладки"
+   ],
+   "academy": "Курс вечерних причёсок и укладок",
+   "publish": true,
+   "source": "/akademiya/"
+  },
+  {
+   "slug": "zarema-nucalhanova",
+   "name": "Зарема Нуцалханова",
+   "group": "art",
+   "role": "Арт-стилист",
+   "salon": "veb-rf",
+   "photo": "/akademiya/media/t-zarema.webp",
+   "lead": "19 лет в индустрии красоты. Училась в Академии Aldo Coppola в Милане, работала в Академии A.C. Milan и ассистировала самому Альдо Копполе в его миланском салоне.",
+   "facts": [
+    "Готовит новых сотрудников во внутренней академии"
+   ],
+   "work": [
+    "Окрашивание в технике Shatush",
+    "Стрижки"
+   ],
+   "academy": "Тренинг по технике Shatush",
+   "publish": true,
+   "source": "/akademiya/, Figma 8325:908"
+  },
+  {
+   "slug": "franchesko-montani",
+   "name": "Франческо Монтани",
+   "group": "art",
+   "role": "Ведущий преподаватель Академии",
+   "salon": null,
+   "photo": "/akademiya/media/t-montani.webp",
+   "lead": "Окончил Académie Haute Coiffure Française в Париже и Университет IUAV в Венеции. Работал в Париже, Кремоне и Милане, владеет итальянской, британской, французской и американской школами.",
+   "facts": [
+    "Больше 25 лет хранит философию Aldo Coppola"
+   ],
+   "work": [
+    "Укладки",
+    "Мужские и женские короткие стрижки"
+   ],
+   "academy": "Accademia Project, укладки, мужские и женские короткие стрижки",
+   "publish": true,
+   "source": "/akademiya/"
+  },
+  {
+   "slug": "dzhampaolo-marini",
+   "name": "Джампаоло Марини",
+   "name_en": "Giampaolo Marini",
+   "group": "art",
+   "role": "Арт-директор",
+   "salon": "boscovesna",
+   "photo": null,
+   "lead": "Носитель философии естественной красоты по-итальянски. Больше 20 лет в индустрии, ученик Альдо Копполы и ведущий преподаватель Академии.",
+   "facts": [
+    "Руководил командами стилистов на Неделях моды в Милане и Париже: Armani, Cavalli, Dolce & Gabbana",
+    "Создавал образы для съёмок и обложек Vogue, Harper’s Bazaar, Elle, Marie Claire"
+   ],
+   "work": [
+    "Подвижные стрижки, которые подчёркивают естественную текстуру волос и легко укладываются",
+    "Авторские техники Shatush и уходовое окрашивание на травах Infusion",
+    "Персональная концепция стиля"
+   ],
+   "quote": "Красота не должна выглядеть намеренной — она должна подчёркивать вашу индивидуальность.",
+   "quote_it": "La bellezza non deve sembrare costruita, deve esaltare la Sua unicità.",
+   "academy": null,
+   "publish": true,
+   "source": "Figma 8773:72"
+  },
+  {
+   "slug": "zifa",
+   "name": "Зифа Сайфиевна",
+   "group": "doctor",
+   "role": "Врач-косметолог, дерматовенеролог",
+   "salon": "boscovesna",
+   "photo": null,
+   "lead": "Дерматовенеролог, сертифицированный лазеротерапевт, преподаватель и тренер по инъекционным методикам.",
+   "facts": [],
+   "work": [
+    "Инъекционные методики: филлеры, ботулинотерапия, нити, коллагеностимуляторы",
+    "Аппаратные методики, в том числе Morpheus8 и Liftera"
+   ],
+   "academy": null,
+   "publish": false,
+   "source": "Figma 3234:760 (архив)"
+  },
+  {
+   "slug": "aida-tugusheva",
+   "name": "Аида Тугушева",
+   "group": "doctor",
+   "role": "Врач-косметолог",
+   "salon": null,
+   "photo": null,
+   "lead": "Сертифицированный тренер APTOS, 20 лет опыта.",
+   "facts": [],
+   "work": [
+    "Нитевой лифтинг APTOS"
+   ],
+   "academy": null,
+   "publish": false,
+   "source": "Figma 3951:642 (архив)"
+  },
+  {
+   "slug": "tatyana",
+   "name": "Татьяна",
+   "group": "body",
+   "role": "Специалист по эстетике тела",
+   "salon": "veb-rf",
+   "photo": null,
+   "lead": "Медицинское образование и 15 лет стажа.",
+   "facts": [],
+   "work": [
+    "Массаж с элементами рефлексотерапии",
+    "Аппаратная коррекция фигуры"
+   ],
+   "academy": null,
+   "publish": false,
+   "source": "Figma 3269:729 (архив)"
+  }
+ ]
+}

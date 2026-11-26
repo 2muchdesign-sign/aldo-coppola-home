@@ -15,6 +15,8 @@ SITE = 'https://aldocoppola.ru'
 D = json.load(open(os.path.join(HERE, 'data', 'salons.json'), encoding='utf-8'))
 SV = json.load(open(os.path.join(HERE, 'data', 'salon-services.json'), encoding='utf-8'))
 SALONS = D['salons']
+SP = json.load(open(os.path.join(HERE, 'data', 'specialists.json'), encoding='utf-8'))
+PEOPLE = [x for x in SP['people'] if x.get('publish')]
 BY = {s['slug']: s for s in SALONS}
 DIRS = SV['directions']
 YCL = 'https://w2217426.yclients.com/'
@@ -38,7 +40,7 @@ def photos(s):
 def img(s, n, w=800):
     return f'/salony/media/{s["slug"]}/{n}-{w}.webp'
 
-def page(path, title, desc, body, ld, og_image=None, extra_head=''):
+def page(path, title, desc, body, ld, og_image=None, extra_head='', css=('/salony/salony.css',), js=('/salony/salony.js',)):
     og = f'<meta property="og:image" content="{SITE}{og_image}">' if og_image else ''
     return f'''<!doctype html>
 <html lang="ru">
@@ -54,7 +56,7 @@ def page(path, title, desc, body, ld, og_image=None, extra_head=''):
 <meta name="twitter:card" content="summary_large_image">
 <!--#site-head-->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/salony/salony.css">
+{''.join(f'<link rel="stylesheet" href="{c}">' for c in css)}
 {extra_head}<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 </head>
 <body>
@@ -64,7 +66,7 @@ def page(path, title, desc, body, ld, og_image=None, extra_head=''):
 {body}
 </main>
 <!--#site-footer-->
-<script src="/salony/salony.js" defer></script>
+{''.join(f'<script src="{j}" defer></script>' for j in js)}
 </body>
 </html>
 '''
@@ -136,6 +138,16 @@ def salon_page(s):
     if not s['cosmetology'] and s.get('nearest'):
         nb = BY[s['nearest']]
         tiles.append(f'<a class="sl-dir sl-dir--link sl-dir--note" href="/salony/{nb["slug"]}/"><b>Косметология</b><span>в этом салоне нет — ближайшая в {esc(nb["name"])}</span></a>')
+    ppl = [x for x in PEOPLE if x.get('salon') == s['slug']]
+    team = ''
+    if ppl:
+        cards = ''.join(f'<li><a class="sl-person" href="/specialisty/{x["slug"]}/">' + (f'<img src="{x["photo"]}" alt="" width="160" height="200" loading="lazy">' if x.get('photo') else f'<span class="sl-mono" aria-hidden="true">{x["name"][0]}</span>') + f'<span><b>{esc(x["name"])}</b><small>{esc(x["role"])}</small></span></a></li>' for x in ppl)
+        team = f'''<section class="sl-sec wrap" aria-labelledby="team-h">
+  <h2 id="team-h">Специалисты салона</h2>
+  <ul class="sl-team">{cards}</ul>
+  <p class="sl-more"><a class="sl-link" href="/specialisty/">Все специалисты</a></p>
+</section>
+'''
     others = ''.join(f'<li><a href="/salony/{o["slug"]}/"><b>{esc(o["name"])}</b><span>{esc(o["area"])}</span></a></li>' for o in SALONS if o is not s)
     body = f'''<div class="wrap">
   {crumbs([("Центры красоты", "/salony/"), (s["name"], None)])}
@@ -158,7 +170,7 @@ def salon_page(s):
   <p class="sl-note">По прайсу салона в YClients. Цены зависят от категории мастера — точную стоимость покажет онлайн-запись.</p>
   <div class="sl-dirs">{"".join(tiles)}</div>
 </section>
-<section class="sl-sec wrap" aria-labelledby="oth-h">
+{team}<section class="sl-sec wrap" aria-labelledby="oth-h">
   <h2 id="oth-h">Другие центры красоты</h2>
   <ul class="sl-others">{others}</ul>
   <p class="sl-more"><a class="sl-link" href="/salony/">Все салоны и адреса</a> <a class="sl-link" href="/salony/regiony/">Салоны в регионах</a></p>
