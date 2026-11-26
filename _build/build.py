@@ -69,8 +69,6 @@ OWN_BAR = ('o-brende', 'akademiya', 'stati', 'karera', 'reklama-v-salonah', 'kos
 # ------------------------------------------------------------------ заглушки разделов (этап 2 заменит их страницами)
 # путь: (заголовок H1, что будет на странице, старый адрес на действующем сайте или None)
 STUBS = {
-    '/special/': ('Спецпредложения', 'Действующие акции и предложения салонов Aldo Coppola с условиями и сроками.', '/special/'),
-    '/loyalty/': ('Система лояльности', 'Как копить и тратить бонусы, уровни карты и привилегии постоянных клиентов.', '/loyalty/'),
     '/news/': ('Новости', 'Новости сети: открытия, показы, обучение мастеров, новые услуги.', '/news/'),
     '/tendencii-2026/': ('Тенденции 2026', 'Тенденции парикмахерского искусства 2026 года от Академии Aldo Coppola. Полная версия — в PDF.', '/upload/tendency_2026.pdf'),
     '/o-brende/art/': ('Art: календари и артбуки', 'Арт-календари Aldo Coppola 1990–2007 годов и артбуки Luna, Metamorfosi, Elementi, Natura Magica.', '/eng/art/calendars/'),
@@ -347,6 +345,7 @@ def build_stati():
     subprocess.run([sys.executable, os.path.join(HERE, 'salony.py')], check=True)
     subprocess.run([sys.executable, os.path.join(HERE, 'specialisty.py')], check=True, cwd=HERE)
     subprocess.run([sys.executable, os.path.join(HERE, 'uslugi.py')], check=True, cwd=HERE)
+    subprocess.run([sys.executable, os.path.join(HERE, 'special.py')], check=True, cwd=HERE)
 
 def build_kosm():
     if SKIP_KOSM and os.path.isdir(KOSM_CACHE):
