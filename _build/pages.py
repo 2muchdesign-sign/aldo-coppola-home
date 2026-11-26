@@ -13,7 +13,7 @@ import salony as S
 
 C = os.path.join(S.HERE, 'content')
 OUT = os.path.join(S.ROOT, 'src')
-CSS = ('/salony/salony.css', '/uslugi/uslugi.css', '/_ac/text.css')
+CSS = ('/_ac/pages.css',)
 MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 
 def parse(path):

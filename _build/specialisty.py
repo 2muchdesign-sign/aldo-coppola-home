@@ -2,14 +2,14 @@
 """Раздел «Специалисты»: _build/data/specialists.json → src/specialisty/.
 
 Запускается из _build/build.py (или отдельно: python3 _build/specialisty.py).
-Публикуются только записи с "publish": true. Вёрстка — общая с разделом салонов (src/salony/salony.css)
-плюс src/specialisty/specialisty.css. В Битриксе: инфоблок «Специалисты», привязка к инфоблоку «Салоны».
+Публикуются только записи с "publish": true. Вёрстка — src/_ac/pages.css.
+В Битриксе: инфоблок «Специалисты», привязка к инфоблоку «Салоны».
 """
 import json, os
 import salony as S
 
 OUT = os.path.join(S.ROOT, 'src', 'specialisty')
-CSS = ('/salony/salony.css', '/specialisty/specialisty.css')
+CSS = ('/_ac/pages.css',)
 PEOPLE = S.PEOPLE
 GROUPS = S.SP['groups']
 

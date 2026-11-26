@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Дизайн-система Aldo Coppola — цвета, шрифты, компоненты сайта</title>
+<meta name="description" content="Справочник дизайн-системы сайта Aldo Coppola для команды и подрядчиков: токены, шрифты, сетка, компоненты, правила бренда.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://aldocoppola.ru/dizayn-sistema/">
+<!--#site-head-->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/_ac/pages.css">
+<style>
+/* Только для этой служебной страницы */
+.ds-sec{padding-top:var(--ac-sec)}
+.ds-sec>h2{margin-bottom:18px}
+.ds-sec>.sl-note{margin-top:-6px}
+.ds-sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(200px,100%),1fr));border-top:1px solid var(--ac-line);border-left:1px solid var(--ac-line)}
+.ds-sw li{display:grid;gap:4px;padding:0 0 14px;border-right:1px solid var(--ac-line);border-bottom:1px solid var(--ac-line)}
+.ds-sw i{display:block;height:84px;margin-bottom:8px;border-bottom:1px solid var(--ac-line)}
+.ds-sw b,.ds-sw code,.ds-sw span{padding:0 14px}
+.ds-sw b{font-weight:600}
+.ds-sw code,.ds-tok{font-family:ui-monospace,"SF Mono",Menlo,monospace;font-size:12.5px;color:var(--ac-muted)}
+.ds-sw span{font-size:13.5px;color:var(--ac-muted)}
+.ds-type{display:grid;border-top:1px solid var(--ac-line)}
+.ds-type>div{display:grid;grid-template-columns:1fr;gap:6px;padding:18px 0;border-bottom:1px solid var(--ac-line)}
+.ds-type .ds-tok{order:2}
+@media (min-width:860px){.ds-type>div{grid-template-columns:260px 1fr;align-items:baseline}.ds-type .ds-tok{order:0}}
+.ds-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
+.ds-box{padding:24px;border:1px dashed var(--ac-line);display:grid;gap:18px}
+.ds-tbl{overflow-x:auto;border:1px solid var(--ac-line)}
+.ds-tbl table{border-collapse:collapse;width:100%;min-width:720px;font-size:15px}
+.ds-tbl th,.ds-tbl td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--ac-line)}
+.ds-tbl thead th{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;background:var(--ac-mist)}
+.ds-tbl tr:last-child>*{border-bottom:0}
+.ds-pl{font-family:var(--ac-display);font-size:30px;line-height:1.1}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Перейти к содержимому</a>
+<!--#site-header-->
+<main id="main" class="sl">
+<div class="wrap">
+  <nav class="crumbs" aria-label="Хлебные крошки"><a href="/">Aldo Coppola</a><span aria-hidden="true">/</span><span aria-current="page">Дизайн-система</span></nav>
+  <header class="sl-head">
+    <p class="eyebrow">Для команды и подрядчиков</p>
+    <h1>Дизайн-система Aldo Coppola</h1>
+    <p class="us-lead">Единые цвета, шрифты, сетка и компоненты сайта. Все примеры на этой странице — живые: те же классы, что и на страницах сайта. Страница закрыта от поисковиков.</p>
+    <div class="us-chips"><a class="us-chip" href="#pravila">Правила бренда</a><a class="us-chip" href="#cvet">Цвет</a><a class="us-chip" href="#shrift">Шрифты</a><a class="us-chip" href="#setka">Сетка</a><a class="us-chip" href="#komponenty">Компоненты</a><a class="us-chip" href="#razdely">Разделы</a><a class="us-chip" href="#faily">Файлы</a></div>
+  </header>
+</div>
+
+<section class="ds-sec wrap" id="pravila" aria-labelledby="pr-h">
+  <h2 id="pr-h">Правила бренда</h2>
+  <ul class="sl-feats sp-rules">
+    <li>Фон — только белый и светло-серый. Чёрных и тёмных фонов нет.</li>
+    <li>Красный — для действий (запись, кнопки), ссылок-стрелок и коротких меток. Не для больших заливок текста.</li>
+    <li>Никакого текста и графики поверх фото и видео рекламных кампаний. Заголовок стоит рядом с кадром или под ним; кадры кампаний не кадрируем.</li>
+    <li>H1 и H2 — заглавными, ровными строками, без курсива и цветных вставок внутри заголовка.</li>
+    <li>Mobile first: адрес, телефон и запись — на первом экране телефона.</li>
+    <li>Названия салонов: ТЦ BoscoVesna, ТЦ Времена года, БЦ ВЭБ РФ, Лотте Отель, Жуковка, Барвиха, Юнимолл. Мы говорим «клиент», не «гость».</li>
+  </ul>
+</section>
+
+<section class="ds-sec wrap" id="cvet" aria-labelledby="c-h">
+  <h2 id="c-h">Цвет</h2>
+  <p class="sl-note">Токены — в /_ac/tokens.css. В коде используйте только переменные, не цифры.</p>
+  <ul class="ds-sw">
+    <li><i style="background:var(--ac-paper)"></i><b>Белый</b><code>--ac-paper · #FFFFFF</code><span>Основной фон</span></li>
+    <li><i style="background:var(--ac-ivory)"></i><b>Слоновая кость</b><code>--ac-ivory · #F4F3F1</code><span>Подвал, врезки, подсказки</span></li>
+    <li><i style="background:var(--ac-mist)"></i><b>Туман</b><code>--ac-mist · #F4F4F5</code><span>Шапки таблиц, служебные блоки</span></li>
+    <li><i style="background:var(--ac-ink)"></i><b>Чернила</b><code>--ac-ink · #141414</code><span>Текст и заголовки</span></li>
+    <li><i style="background:var(--ac-muted)"></i><b>Приглушённый</b><code>--ac-muted · #5E5C5A</code><span>Подписи, второстепенный текст</span></li>
+    <li><i style="background:var(--ac-line)"></i><b>Линия</b><code>--ac-line · ink 14%</code><span>Рамки и разделители</span></li>
+    <li><i style="background:var(--ac-red)"></i><b>Красный Aldo Coppola</b><code>--ac-red · #C8102E</code><span>Кнопки, метки, стрелки</span></li>
+    <li><i style="background:var(--ac-red-deep)"></i><b>Красный, наведение</b><code>--ac-red-deep · #A50D26</code><span>Hover кнопок</span></li>
+  </ul>
+</section>
+
+<section class="ds-sec wrap" id="shrift" aria-labelledby="t-h">
+  <h2 id="t-h">Шрифты и размеры</h2>
+  <p class="sl-note">Manrope — весь текст, H1–H2 и кнопки. Cormorant Garamond — H3, имена, карточки, цифры, цитаты. Playfair Display — акцент редакционных разделов (история, Академия, статьи, карьера).</p>
+  <div class="ds-type">
+    <div><span class="ds-tok">H1 · --ac-h1 · Manrope 500, заглавные</span><h1 style="font-size:var(--ac-h1)">Центры красоты</h1></div>
+    <div><span class="ds-tok">H2 · --ac-h2 · Manrope 500, заглавные</span><h2>Услуги в салоне</h2></div>
+    <div><span class="ds-tok">H3 · --ac-h3 · Cormorant Garamond 500</span><h3>Окрашивание в технике Shatush</h3></div>
+    <div><span class="ds-tok">Лид · --ac-lead · Manrope 400</span><p class="us-lead">Итальянская школа Aldo Coppola: стрижки, окрашивание и уход.</p></div>
+    <div><span class="ds-tok">Текст · --ac-body 17px · Manrope 400</span><p>Стилист смотрит на текстуру и густоту волос, форму лица и то, как вы укладываетесь дома.</p></div>
+    <div><span class="ds-tok">Надзаголовок · --ac-label · 600, разрядка .2em</span><p class="eyebrow">Центр красоты · Москва</p></div>
+    <div><span class="ds-tok">Акцент разделов · --ac-display · Playfair Display</span><p class="ds-pl">Маэстро из Милана</p></div>
+  </div>
+</section>
+
+<section class="ds-sec wrap" id="setka" aria-labelledby="g-h">
+  <h2 id="g-h">Сетка и отступы</h2>
+  <div class="ds-tbl"><table>
+    <thead><tr><th>Токен</th><th>Значение</th><th>Где</th></tr></thead>
+    <tbody>
+      <tr><td class="ds-tok">--ac-wrap</td><td>1320 px</td><td>Максимальная ширина контента (класс .wrap)</td></tr>
+      <tr><td class="ds-tok">--ac-pad</td><td>20–56 px</td><td>Поля по краям, растут с шириной экрана; на телефоне учитывают вырез экрана</td></tr>
+      <tr><td class="ds-tok">--ac-sec</td><td>48–88 px</td><td>Расстояние между секциями страницы</td></tr>
+      <tr><td class="ds-tok">--ac-btn-h</td><td>52 px</td><td>Высота основной кнопки; в шапке — 46 px</td></tr>
+      <tr><td class="ds-tok">Плитки</td><td>рамка 1 px</td><td>Сетки карточек рисуются рамками ячеек, без теней и скруглений</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="ds-sec wrap" id="komponenty" aria-labelledby="k-h">
+  <h2 id="k-h">Компоненты</h2>
+  <p class="sl-note">Классы — в /_ac/pages.css (информационные страницы) и /_ac/site.css (шапка и подвал).</p>
+  <div class="ds-box">
+    <p class="eyebrow">Кнопки и ссылки · .sl-btn, .sl-btn--line, .sl-link, .sl-link--red</p>
+    <div class="ds-row"><a class="sl-btn" href="#komponenty">Записаться онлайн</a><a class="sl-btn sl-btn--line" href="#komponenty">Маршрут</a><a class="sl-link" href="#komponenty">Все салоны</a><a class="sl-link sl-link--red" href="#komponenty">Записаться</a><a class="sl-phone" href="tel:+74956465879">+7 (495) 646-58-79</a></div>
+  </div>
+  <div class="ds-box" style="margin-top:16px">
+    <p class="eyebrow">Ключевые цифры · .us-facts</p>
+    <div class="us-facts"><div><span>Цена</span><b>от 14&nbsp;500&nbsp;₽</b></div><div><span>Длительность</span><b>от 1 ч 30 мин</b></div><div><span>Салоны</span><b>7 из 7</b></div></div>
+  </div>
+  <div class="ds-box" style="margin-top:16px">
+    <p class="eyebrow">Карточки услуг · .us-cards / .us-card</p>
+    <ul class="us-cards"><li><a class="us-card" href="/uslugi/volosy/okrashivanie-shatush/"><b>Шатуш</b><span>от 14&nbsp;500&nbsp;₽</span></a></li><li><a class="us-card" href="/uslugi/nogti/manikyur/"><b>Маникюр</b><span>от 4&nbsp;700&nbsp;₽</span></a></li><li><a class="us-card us-card--ext" href="/kosmetologiya/"><b>Косметология</b><span>Ссылка в другой раздел</span></a></li></ul>
+  </div>
+  <div class="ds-box" style="margin-top:16px">
+    <p class="eyebrow">Спецпредложение · .sp-card · человек · .sl-person</p>
+    <ul class="sp-list"><li><a class="sp-card" href="/special/vyhod-v-svet/"><span class="sp-tag">Тело</span><b>«Выход в свет»</b><span class="sp-short">Прессотерапия и бандажное обёртывание.</span><span class="sp-price"><b>11&nbsp;000&nbsp;₽</b><s>16&nbsp;200&nbsp;₽</s></span></a></li><li><a class="sl-person" href="/specialisty/alberto-sanvido/"><img src="/akademiya/media/t-sanvido.webp" alt="" width="160" height="200" loading="lazy"><span><b>Альберто Санвидо</b><small>Арт-директор</small></span></a></li></ul>
+  </div>
+  <div class="ds-box" style="margin-top:16px">
+    <p class="eyebrow">Таблица цен · .sl-mx</p>
+    <div class="sl-mx us-mx"><table><thead><tr><th scope="col">Услуга</th><th scope="col">BoscoVesna</th><th scope="col">Жуковка</th></tr></thead><tbody><tr><th scope="row">Укладка</th><td>7&nbsp;100–12&nbsp;300&nbsp;₽</td><td>7&nbsp;300–12&nbsp;100&nbsp;₽</td></tr><tr><th scope="row">Сложная укладка</th><td>8&nbsp;700–15&nbsp;500&nbsp;₽</td><td>8&nbsp;700–15&nbsp;300&nbsp;₽</td></tr></tbody></table></div>
+  </div>
+  <div class="ds-box" style="margin-top:16px">
+    <p class="eyebrow">Вопросы и ответы · .us-faq · врезка · .tx-note</p>
+    <div class="us-faq"><details open><summary>Можно сделать причёску и макияж одновременно?</summary><p>Да. Параллельный сервис — фирменный формат Aldo Coppola.</p></details><details><summary>Сколько длится процедура?</summary><p>По прайсу салонов — от 1 до 2 часов.</p></details></div>
+    <p class="tx-note">Сейчас мы ищем партнёра для открытия центра красоты в Санкт-Петербурге.</p>
+  </div>
+  <div class="ds-box" style="margin-top:16px">
+    <p class="eyebrow">Шаги · .us-how · список-ссылки · .sl-others</p>
+    <ol class="us-how"><li>Консультация</li><li>Мытьё и уход</li><li>Стрижка</li></ol>
+    <ul class="sl-others"><li><a href="/salony/zhukovka/"><b>Жуковка</b><span>Рублёво-Успенское шоссе</span></a></li><li><a href="/salony/barvikha/"><b>Барвиха</b><span>Рублёво-Успенское шоссе</span></a></li></ul>
+  </div>
+</section>
+
+<section class="ds-sec wrap" id="razdely" aria-labelledby="r-h">
+  <h2 id="r-h">Разделы и их настроение</h2>
+  <p class="sl-note">Общие: шапка, подвал, палитра, линии, кнопки записи. Своё у раздела — акцентный шрифт и композиция. Панель раздела стоит под общей шапкой; логотип в ней не повторяется.</p>
+  <div class="ds-tbl"><table>
+    <thead><tr><th>Раздел</th><th>Вёрстка</th><th>Акцент</th><th>Стили</th></tr></thead>
+    <tbody>
+      <tr><td><a href="/">Главная</a></td><td>Видео кампании, новости, салоны</td><td>Cormorant Garamond, мазок логотипа</td><td>внутри страницы</td></tr>
+      <tr><td><a href="/salony/">Салоны</a>, <a href="/specialisty/">специалисты</a>, <a href="/uslugi/">услуги</a>, <a href="/ceny/">цены</a>, <a href="/special/">акции</a>, <a href="/news/">новости</a>, правовые</td><td>Информационная: белое поле, плитки в рамках</td><td>Cormorant Garamond</td><td>/_ac/pages.css</td></tr>
+      <tr><td><a href="/o-brende/">История бренда</a>, <a href="/akademiya/">Академия</a></td><td>Редакционная, живой фон</td><td>Playfair Display</td><td>внутри страницы</td></tr>
+      <tr><td><a href="/stati/">Статьи</a></td><td>Глянец в вёрстке: обложка, рубрики, длинное чтение</td><td>Playfair Display</td><td>/stati/journal.css</td></tr>
+      <tr><td><a href="/karera/">Карьера</a>, <a href="/reklama-v-salonah/">Indoor TV</a></td><td>Стиль Indoor TV: крупная типографика, красные плашки</td><td>Playfair Display</td><td>внутри страницы</td></tr>
+      <tr><td><a href="/karera/top-stilist/">Топ-стилист</a></td><td>Шаблон всех вакансий</td><td>Cormorant Garamond</td><td>внутри страницы</td></tr>
+      <tr><td><a href="/kosmetologiya/">Косметология</a></td><td>«Клиническая точность»: поиск, фильтр по салону</td><td>Onest, IBM Plex Mono</td><td>отдельный проект Astro, свой справочник <a href="/kosmetologiya/dizayn/">/kosmetologiya/dizayn/</a></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="ds-sec wrap" id="faily" aria-labelledby="f-h">
+  <h2 id="f-h">Файлы и порядок подключения</h2>
+  <ol class="us-how">
+    <li>/_ac/tokens.css — токены: цвет, шрифты, размеры, отступы</li>
+    <li>/_ac/site.css и /_ac/site.js — общие шапка и подвал (в Битриксе — header.php и footer.php)</li>
+    <li>Стили страницы или раздела: /_ac/pages.css, /stati/journal.css или стили внутри страницы</li>
+    <li>/_ac/align.css — последним: приводит разделы, свёрстанные до дизайн-системы, к общей палитре и убирает двойной логотип</li>
+  </ol>
+  <p class="sl-more" style="padding-bottom:var(--ac-sec)"><a class="sl-link" href="/sitemap/">Карта сайта</a></p>
+</section>
+</main>
+<!--#site-footer-->
+</body>
+</html>

@@ -166,7 +166,10 @@ def footer_html():
 HEAD_INC = '''<link rel="icon" type="image/png" href="/_ac/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/_ac/tokens.css">
 <link rel="stylesheet" href="/_ac/site.css">'''
+# выравнивание разделов по дизайн-системе — последним в <head>, чтобы перекрыть переменные разделов
+ALIGN = '<link rel="stylesheet" href="/_ac/align.css">'
 FOOT_JS = '<script src="/_ac/site.js" defer></script>'
 
 # ------------------------------------------------------------------ простые страницы (заглушки, карта сайта, 404)
@@ -299,6 +302,7 @@ def set_robots(s):
 def assemble(s, path, kosm=False):
     inc = rewrite_links(HEAD_INC)
     s = s.replace('<!--#site-head-->', inc, 1) if '<!--#site-head-->' in s else s.replace('</head>', inc + '\n</head>', 1)
+    s = s.replace('</head>', rewrite_links(ALIGN) + '\n</head>', 1)
     hdr = rewrite_links(header_html(path))
     if '<!--#site-header-->' in s:
         s = s.replace('<!--#site-header-->', hdr, 1)
@@ -414,7 +418,7 @@ def main():
             s = assemble(s, path, kosm=kosm)
             open(full, 'w', encoding='utf-8').write(s)
             if 'noindex' not in (re.search(r'<meta name="robots" content="([^"]*)"', s) or [None, ''])[1] or not PROD:
-                if not (kosm and '/dizayn/' in path):
+                if not (kosm and '/dizayn/' in path) and path != '/dizayn-sistema/':
                     pages.append((path, page_title(s)))
 
     pages.sort()

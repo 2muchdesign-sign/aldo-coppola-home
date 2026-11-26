@@ -3,7 +3,7 @@
 
 Запускается из _build/build.py (или отдельно: python3 _build/uslugi.py).
 Цены, длительность, салоны и ID услуг для записи — из прайсов YClients (обновить: _build/salon_services.py).
-Вёрстка — общая с салонами (src/salony/salony.css) плюс src/uslugi/uslugi.css.
+Вёрстка — src/_ac/pages.css.
 В Битриксе: инфоблок «Услуги» (поля uslugi.json) + цены из YClients по ID услуги.
 """
 import json, os, re
@@ -17,8 +17,8 @@ DIRS = U['directions']
 DBY = {d['slug']: d for d in DIRS}
 SV = U['services']
 SBY = {s['slug']: s for s in SV}
-CSS = ('/salony/salony.css', '/uslugi/uslugi.css')
-JS = ('/uslugi/uslugi.js',)
+CSS = ('/_ac/pages.css',)
+JS = ()
 NB = ' '
 BUILT = f'{PR["built"][8:10]}.{PR["built"][5:7]}.{PR["built"][:4]}'
 

@@ -3,7 +3,7 @@
 
 Запускается из _build/build.py (или отдельно: python3 _build/salony.py).
 Результат: src/salony/index.html, src/salony/{slug}/index.html, src/salony/regiony/index.html.
-Стили раздела — src/salony/salony.css (правится руками). Фото — src/salony/media/{slug}/NN-1600.webp и NN-800.webp.
+Стили — src/_ac/pages.css (общие для информационных страниц), скрипт галереи — src/salony/salony.js. Фото — src/salony/media/{slug}/NN-1600.webp и NN-800.webp.
 В Битриксе: инфоблок «Салоны», поля = ключи salons.json.
 """
 import html, json, os, re
@@ -40,7 +40,7 @@ def photos(s):
 def img(s, n, w=800):
     return f'/salony/media/{s["slug"]}/{n}-{w}.webp'
 
-def page(path, title, desc, body, ld, og_image=None, extra_head='', css=('/salony/salony.css',), js=('/salony/salony.js',)):
+def page(path, title, desc, body, ld, og_image=None, extra_head='', css=('/_ac/pages.css',), js=('/salony/salony.js',)):
     og = f'<meta property="og:image" content="{SITE}{og_image}">' if og_image else ''
     return f'''<!doctype html>
 <html lang="ru">

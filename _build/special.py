@@ -13,7 +13,7 @@ OUT = os.path.join(S.ROOT, 'src')
 D = json.load(open(os.path.join(S.HERE, 'data', 'special.json'), encoding='utf-8'))
 TODAY = datetime.date.today().isoformat()
 OFFERS = [o for o in D['offers'] if o.get('publish') and (not o.get('until') or o['until'] >= TODAY)]
-CSS = ('/salony/salony.css', '/uslugi/uslugi.css', '/special/special.css')
+CSS = ('/_ac/pages.css',)
 MED = 'Имеются противопоказания, необходима консультация специалиста.'
 
 def ru_date(iso):
