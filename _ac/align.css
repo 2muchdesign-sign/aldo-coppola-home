@@ -1,0 +1,28 @@
+/* Выравнивание разделов по дизайн-системе. Подключается последним в <head>, поэтому перекрывает
+   собственные переменные разделов, свёрстанных раньше единой системы. У каждого раздела остаётся
+   своё настроение (акцентный шрифт, композиция), но цвета, линии и ширина сетки — общие.
+   В Битриксе: подключить после стилей разделов; со временем переменные разделов заменить на --ac-*. */
+
+/* 1. Общая палитра для переменных разделов */
+:root{
+  --paper:var(--ac-paper); --ivory:var(--ac-ivory); --mist:var(--ac-mist);
+  --ink:var(--ac-ink); --muted:var(--ac-muted); --grey:var(--ac-muted);
+  --line:var(--ac-line); --red:var(--ac-red); --red-deep:var(--ac-red-deep);
+  --sans:var(--ac-sans);
+  /* косметология (Astro): свои шрифты Onest и IBM Plex Mono остаются, цвета — общие */
+  --acc-graphite:var(--ac-ink); --acc-grey:var(--ac-muted); --acc-red:var(--ac-red); --acc-mist:var(--ac-mist);
+  --acc-line:var(--ac-line);
+}
+
+/* 2. Один логотип на странице: в общей шапке. В панелях разделов остаётся только название раздела */
+header.head a.logo,                         /* история бренда, Академия */
+.jh .jh-logo,                               /* статьи */
+header.top .brand b,                        /* карьера, Indoor TV: «ALDO COPPOLA» перед названием раздела */
+.hdr .logo,                                 /* топ-стилист: «ALDO COPPOLA MOSCOW · CAREER» */
+.acc-hdr .acc-logo img,.acc-hdr .acc-logo__w /* косметология */
+{display:none!important}
+header.top .brand i{font-style:normal}
+
+/* 3. Кнопка записи в панелях разделов — как в общей шапке */
+.jh .jh-book,header.head .btn,header.top .btn{background:var(--ac-red);border-color:var(--ac-red);color:#fff;font-family:var(--ac-sans);letter-spacing:.14em;text-transform:uppercase}
+.jh .jh-book:hover,header.head .btn:hover,header.top .btn:hover{background:var(--ac-red-deep);border-color:var(--ac-red-deep)}
