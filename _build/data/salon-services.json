@@ -1,0 +1,330 @@
+{
+ "source": "Прайс листы всех салонов для YClients_nov2026",
+ "built": "2026-11-26",
+ "directions": [
+  [
+   "volosy",
+   "Волосы"
+  ],
+  [
+   "kosmetologiya",
+   "Косметология"
+  ],
+  [
+   "nogti",
+   "Ногти"
+  ],
+  [
+   "brovi-resnicy",
+   "Брови и ресницы"
+  ],
+  [
+   "makiyazh",
+   "Макияж"
+  ],
+  [
+   "permanent",
+   "Перманентный макияж"
+  ],
+  [
+   "epilyaciya",
+   "Эпиляция"
+  ],
+  [
+   "massazh",
+   "Массаж и уход за телом"
+  ],
+  [
+   "muzhchinam",
+   "Мужчинам"
+  ],
+  [
+   "detyam",
+   "Детям до 10 лет"
+  ]
+ ],
+ "salons": {
+  "zhukovka": {
+   "volosy": {
+    "count": 23,
+    "from": 2300
+   },
+   "kosmetologiya": {
+    "count": 211,
+    "from": 500
+   },
+   "nogti": {
+    "count": 20,
+    "from": 2100
+   },
+   "brovi-resnicy": {
+    "count": 14,
+    "from": 2100
+   },
+   "makiyazh": {
+    "count": 8,
+    "from": 1900
+   },
+   "permanent": {
+    "count": 8,
+    "from": 23205
+   },
+   "epilyaciya": {
+    "count": 16,
+    "from": 3400
+   },
+   "massazh": {
+    "count": 15,
+    "from": 5300
+   },
+   "muzhchinam": {
+    "count": 82,
+    "from": 350
+   },
+   "detyam": {
+    "count": 3,
+    "from": 3100
+   }
+  },
+  "barvikha": {
+   "volosy": {
+    "count": 20,
+    "from": 3200
+   },
+   "kosmetologiya": {
+    "count": 230,
+    "from": 500
+   },
+   "nogti": {
+    "count": 20,
+    "from": 2100
+   },
+   "brovi-resnicy": {
+    "count": 14,
+    "from": 2100
+   },
+   "makiyazh": {
+    "count": 8,
+    "from": 1900
+   },
+   "permanent": {
+    "count": 7,
+    "from": 23600
+   },
+   "epilyaciya": {
+    "count": 15,
+    "from": 3400
+   },
+   "massazh": {
+    "count": 20,
+    "from": 4500
+   },
+   "muzhchinam": {
+    "count": 82,
+    "from": 350
+   },
+   "detyam": {
+    "count": 3,
+    "from": 4400
+   }
+  },
+  "veb-rf": {
+   "volosy": {
+    "count": 20,
+    "from": 3200
+   },
+   "kosmetologiya": {
+    "count": 162,
+    "from": 500
+   },
+   "nogti": {
+    "count": 20,
+    "from": 1900
+   },
+   "brovi-resnicy": {
+    "count": 14,
+    "from": 2100
+   },
+   "makiyazh": {
+    "count": 8,
+    "from": 1800
+   },
+   "permanent": {
+    "count": 7,
+    "from": 37000
+   },
+   "epilyaciya": {
+    "count": 16,
+    "from": 3400
+   },
+   "massazh": {
+    "count": 14,
+    "from": 5300
+   },
+   "muzhchinam": {
+    "count": 82,
+    "from": 350
+   },
+   "detyam": {
+    "count": 3,
+    "from": 4000
+   }
+  },
+  "vremena-goda": {
+   "volosy": {
+    "count": 20,
+    "from": 2900
+   },
+   "kosmetologiya": {
+    "count": 164,
+    "from": 500
+   },
+   "nogti": {
+    "count": 20,
+    "from": 1900
+   },
+   "brovi-resnicy": {
+    "count": 14,
+    "from": 2200
+   },
+   "makiyazh": {
+    "count": 8,
+    "from": 2000
+   },
+   "permanent": {
+    "count": 7,
+    "from": 24000
+   },
+   "epilyaciya": {
+    "count": 16,
+    "from": 3500
+   },
+   "massazh": {
+    "count": 14,
+    "from": 5400
+   },
+   "muzhchinam": {
+    "count": 83,
+    "from": 350
+   },
+   "detyam": {
+    "count": 3,
+    "from": 3900
+   }
+  },
+  "boscovesna": {
+   "volosy": {
+    "count": 20,
+    "from": 2300
+   },
+   "kosmetologiya": {
+    "count": 165,
+    "from": 500
+   },
+   "nogti": {
+    "count": 20,
+    "from": 1200
+   },
+   "brovi-resnicy": {
+    "count": 14,
+    "from": 2100
+   },
+   "makiyazh": {
+    "count": 8,
+    "from": 1900
+   },
+   "permanent": {
+    "count": 7,
+    "from": 23600
+   },
+   "epilyaciya": {
+    "count": 16,
+    "from": 3400
+   },
+   "massazh": {
+    "count": 14,
+    "from": 5300
+   },
+   "muzhchinam": {
+    "count": 82,
+    "from": 350
+   },
+   "detyam": {
+    "count": 3,
+    "from": 3400
+   }
+  },
+  "unimall": {
+   "volosy": {
+    "count": 20,
+    "from": 3200
+   },
+   "kosmetologiya": {
+    "count": 135,
+    "from": 500
+   },
+   "nogti": {
+    "count": 20,
+    "from": 2100
+   },
+   "brovi-resnicy": {
+    "count": 14,
+    "from": 2100
+   },
+   "makiyazh": {
+    "count": 8,
+    "from": 1900
+   },
+   "permanent": {
+    "count": 7,
+    "from": 23600
+   },
+   "epilyaciya": {
+    "count": 16,
+    "from": 3400
+   },
+   "massazh": {
+    "count": 14,
+    "from": 1510
+   },
+   "muzhchinam": {
+    "count": 95,
+    "from": 350
+   },
+   "detyam": {
+    "count": 3,
+    "from": 4400
+   }
+  },
+  "lotte": {
+   "volosy": {
+    "count": 20,
+    "from": 2300
+   },
+   "nogti": {
+    "count": 20,
+    "from": 2100
+   },
+   "brovi-resnicy": {
+    "count": 14,
+    "from": 2100
+   },
+   "makiyazh": {
+    "count": 8,
+    "from": 1900
+   },
+   "permanent": {
+    "count": 7,
+    "from": 23600
+   },
+   "muzhchinam": {
+    "count": 82,
+    "from": 350
+   },
+   "detyam": {
+    "count": 3,
+    "from": 3400
+   }
+  }
+ }
+}

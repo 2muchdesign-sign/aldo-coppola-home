@@ -12,7 +12,7 @@ BASE = '/aldo-coppola-home/'
 if '--base' in sys.argv:
     BASE = sys.argv[sys.argv.index('--base') + 1]
 
-ATTR = re.compile(r'\s(?:href|src|poster)=["\']([^"\']+)["\']')
+ATTR = re.compile(r'\s(?:href|src|poster|data-tour|data-poster)=["\']([^"\']+)["\']')
 bad = collections.defaultdict(set)
 left = []
 n = 0
@@ -31,6 +31,8 @@ for d, _, files in os.walk(OUT):
         for u in ATTR.findall(s):
             if u.startswith(('http:', 'https:', '//', 'mailto:', 'tel:', 'data:', 'javascript:', '#', '${', "'+", '{')):
                 continue
+            if '/' not in u and '.' not in u:
+                continue  # ключ, а не адрес (например data-tour="vesna" на главной)
             path = unquote(urlsplit(u).path)
             if not path:
                 continue

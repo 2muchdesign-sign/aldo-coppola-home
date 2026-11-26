@@ -69,7 +69,6 @@ OWN_BAR = ('o-brende', 'akademiya', 'stati', 'karera', 'reklama-v-salonah', 'kos
 # ------------------------------------------------------------------ заглушки разделов (этап 2 заменит их страницами)
 # путь: (заголовок H1, что будет на странице, старый адрес на действующем сайте или None)
 STUBS = {
-    '/salony/': ('Центры красоты', 'Семь салонов Aldo Coppola в Москве и Подмосковье: адреса, часы, парковка, услуги и аппараты каждого салона, мастера, лицензии и видеотуры. Отдельно — салоны в регионах.', '/beauty-centers/'),
     '/uslugi/': ('Услуги и цены', 'Все услуги по направлениям: волосы, ногти, брови и ресницы, макияж, перманент, эпиляция, услуги для мужчин. У каждой услуги — цена по салонам и запись сразу на неё.', '/price/'),
     '/specialisty/': ('Специалисты', 'Стилисты, колористы и врачи-косметологи Aldo Coppola: фото, опыт, салон, услуги и статьи автора.', None),
     '/special/': ('Спецпредложения', 'Действующие акции и предложения салонов Aldo Coppola с условиями и сроками.', '/special/'),
@@ -273,7 +272,7 @@ def redirect_page(to):
 </head><body><p>Страница переехала: <a href="{t}">{SITE}{to}</a></p><script>location.replace({json.dumps(t)}+location.hash)</script></body></html>'''
 
 # ------------------------------------------------------------------ обработка страниц
-ATTR_RE = re.compile(r'(\s(?:href|src|poster|action|data-src))=(["\'])([^"\']*)\2')
+ATTR_RE = re.compile(r'(\s(?:href|src|poster|action|data-src|data-tour|data-poster))=(["\'])([^"\']*)\2')
 SRCSET_RE = re.compile(r'(\ssrcset)=(["\'])([^"\']*)\2')
 
 def map_url(u):
@@ -347,6 +346,7 @@ def url_path(rel):
 # ------------------------------------------------------------------ шаги сборки
 def build_stati():
     subprocess.run([sys.executable, os.path.join(HERE, 'stati.py')], check=True)
+    subprocess.run([sys.executable, os.path.join(HERE, 'salony.py')], check=True)
 
 def build_kosm():
     if SKIP_KOSM and os.path.isdir(KOSM_CACHE):
