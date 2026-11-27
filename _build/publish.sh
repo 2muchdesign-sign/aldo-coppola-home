@@ -12,20 +12,17 @@ python3 _build/check.py
 
 git -c http.postBuffer=524288000 -c credential.helper= -c credential.helper='!gh auth git-credential' push origin main
 
-# _site → gh-pages: поверх прошлой сборки, чтобы отправлялись только изменения (полная заливка упирается в таймаут GitHub)
+# _site → gh-pages. Постоянная копия ветки в .cache/gh-pages: сборка кладётся поверх прошлой,
+# на GitHub уходят только изменения (полная заливка 200+ МБ упирается в таймаут GitHub)
 GIT=(git -c http.postBuffer=524288000 -c credential.helper= -c credential.helper='!gh auth git-credential')
-TMP=$(mktemp -d)
-cd "$TMP"
-git init -q
-git remote add origin "https://github.com/$REPO.git"
-if "${GIT[@]}" fetch -q --depth 1 origin gh-pages 2>/dev/null; then
-  git checkout -q -b gh-pages FETCH_HEAD
+GP=.cache/gh-pages
+if [[ ! -d $GP/.git ]]; then
+  "${GIT[@]}" clone --depth 1 -b gh-pages "https://github.com/$REPO.git" $GP
 else
-  git checkout -q -b gh-pages
+  (cd $GP && "${GIT[@]}" fetch -q --depth 1 origin gh-pages && git reset -q --hard FETCH_HEAD)
 fi
-cd - >/dev/null
-rsync -a --delete --exclude .git _site/ "$TMP/"
-cd "$TMP"
+rsync -a --delete --exclude .git _site/ $GP/
+cd $GP
 git add -A
 if git diff --cached --quiet; then
   echo "gh-pages: изменений нет"
@@ -34,7 +31,6 @@ else
   "${GIT[@]}" push origin gh-pages
 fi
 cd - >/dev/null
-rm -rf "$TMP"
 
 # Pages: источник — ветка gh-pages, корень
 SRC=$(gh api "repos/$REPO/pages" --jq '.source.branch' 2>/dev/null || echo none)
