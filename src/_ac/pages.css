@@ -174,7 +174,7 @@ h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.2vw,30px);lin
 .sp-ph.sl-mono{font-size:clamp(80px,14vw,140px)}
 .sp-b{display:grid;gap:16px;align-content:start;min-width:0}
 .sp-b h2{margin-top:12px;font-size:clamp(17px,1.6vw,20px)}
-.sp-en{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--muted);margin-top:-8px}
+.sp-en{font-family:var(--serif);font-style:normal;font-size:22px;color:var(--muted);margin-top:-8px}
 .sp-where{font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
 .sp-where a{text-decoration:none;border-bottom:1px solid var(--red)}
 .sp-where a:hover{color:var(--red)}
@@ -186,7 +186,7 @@ h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.2vw,30px);lin
 .sp-act{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
 .sp-q{margin:clamp(40px,5vw,72px) 0 0;padding:clamp(24px,4vw,48px);background:var(--ivory);display:grid;gap:12px}
 .sp-q blockquote{margin:0}
-.sp-q blockquote p{font-family:var(--serif);font-style:italic;font-size:clamp(26px,3vw,40px);line-height:1.15;max-width:24em}
+.sp-q blockquote p{font-family:var(--serif);font-style:normal;font-size:clamp(26px,3vw,40px);line-height:1.15;max-width:24em}
 .sp-q-it{font-size:14px;color:var(--muted)}
 
 @media (min-width:700px){.spc-list{grid-template-columns:repeat(3,minmax(0,1fr));gap:36px 24px}}

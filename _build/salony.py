@@ -55,7 +55,7 @@ def page(path, title, desc, body, ld, og_image=None, extra_head='', css=('/_ac/p
 <meta property="og:title" content="{esc(title)}"><meta property="og:description" content="{esc(desc)}"><meta property="og:url" content="{SITE}{path}">{og}
 <meta name="twitter:card" content="summary_large_image">
 <!--#site-head-->
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
 {''.join(f'<link rel="stylesheet" href="{c}">' for c in css)}
 {extra_head}<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
 </head>

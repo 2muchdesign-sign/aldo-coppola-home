@@ -9,9 +9,11 @@
   --ink:var(--ac-ink); --muted:var(--ac-muted); --grey:var(--ac-muted);
   --line:var(--ac-line); --red:var(--ac-red); --red-deep:var(--ac-red-deep);
   --sans:var(--ac-sans);
+  /* акцентный шрифт разделов — PT Sans Narrow вместо Cormorant / Playfair */
+  --serif:var(--ac-narrow); --display:var(--ac-narrow); --quote:var(--ac-narrow);
   /* косметология (Astro): свои шрифты Onest и IBM Plex Mono остаются, цвета — общие */
   --acc-graphite:var(--ac-ink); --acc-grey:var(--ac-muted); --acc-red:var(--ac-red); --acc-mist:var(--ac-mist);
-  --acc-line:var(--ac-line);
+  --acc-line:var(--ac-line); --acc-serif:var(--ac-narrow);
 }
 
 /* 2. Один логотип на странице: в общей шапке. В панелях разделов остаётся только название раздела */
@@ -26,3 +28,8 @@ header.top .brand i{font-style:normal}
 /* 3. Кнопка записи в панелях разделов — как в общей шапке */
 .jh .jh-book,header.head .btn,header.top .btn{background:var(--ac-red);border-color:var(--ac-red);color:#fff;font-family:var(--ac-sans);letter-spacing:.14em;text-transform:uppercase}
 .jh .jh-book:hover,header.head .btn:hover,header.top .btn:hover{background:var(--ac-red-deep);border-color:var(--ac-red-deep)}
+
+/* 4. У PT Sans Narrow нет курсива: акценты в косметологии — прямым начертанием */
+.acc-it{font-style:normal!important}
+/* Акцентные слова в заголовках (<em>) — цветом, без наклона */
+h1 em,h2 em,h3 em,.masthead em,.big em{font-style:normal}

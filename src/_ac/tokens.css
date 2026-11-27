@@ -15,8 +15,10 @@
 
   /* Шрифты */
   --ac-sans:"Manrope",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;   /* текст, заголовки H1–H2 (заглавными), кнопки */
-  --ac-serif:"Cormorant Garamond","Times New Roman",Georgia,serif;          /* H3, карточки, цифры, цитаты */
-  --ac-display:"Playfair Display","Times New Roman",Georgia,serif;          /* акцент редакционных разделов: история, Академия, статьи, карьера */
+  --ac-narrow:"PT Sans Narrow","Arial Narrow",sans-serif;  /* акцентный узкий: H3, карточки, имена, цифры, цитаты, акценты разделов (400 и 700, без курсива) */
+  /* шрифтов с засечками на сайте нет; старые имена оставлены как синонимы для разделов, свёрстанных раньше */
+  --ac-serif:var(--ac-narrow);
+  --ac-display:var(--ac-narrow);
 
   /* Размеры текста */
   --ac-h1:clamp(30px,4.4vw,54px);
