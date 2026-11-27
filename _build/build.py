@@ -418,7 +418,7 @@ def main():
             s = assemble(s, path, kosm=kosm)
             open(full, 'w', encoding='utf-8').write(s)
             if 'noindex' not in (re.search(r'<meta name="robots" content="([^"]*)"', s) or [None, ''])[1] or not PROD:
-                if not (kosm and '/dizayn/' in path) and path != '/dizayn-sistema/':
+                if not (kosm and '/dizayn/' in path) and path not in ('/dizayn-sistema/', '/test-shrift/'):
                     pages.append((path, page_title(s)))
 
     pages.sort()
