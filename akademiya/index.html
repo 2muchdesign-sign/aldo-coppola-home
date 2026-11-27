@@ -13,7 +13,7 @@
 <meta property="og:image" content="https://aldocoppola.ru/akademiya/media/c-4.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -40,8 +40,8 @@
   --paper:#FFFFFF; --ivory:#F6F4F1; --mist:#F4F4F5;
   --ink:#141414; --muted:#5E5C5A; --line:rgba(20,20,20,.14);
   --red:#C8102E; --red-deep:#A50D26;
-  --display:"Playfair Display","Times New Roman",Georgia,serif;
-  --quote:"Cormorant Garamond","Times New Roman",Georgia,serif;
+  --display:"PT Sans Narrow","Arial Narrow",sans-serif;
+  --quote:"PT Sans Narrow","Arial Narrow",sans-serif;
   --sans:"Manrope",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
   --wrap:1320px; --pad:clamp(16px,4vw,56px);
   color-scheme:light;
@@ -55,7 +55,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 /* Заголовки — структурная система (по мотивам Camper & Nicholsons): H1/H2 заглавными в Manrope 500, ровные строки, без курсива и цветных вставок */
 h3{margin:0;font-family:var(--display);font-weight:500;line-height:1.06;letter-spacing:-.012em;text-wrap:balance}
 h1,h2{margin:0;font-family:var(--sans);font-weight:500;line-height:1.14;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
-h1 em,h2 em,h3 em,.it{font-style:italic;font-weight:400;color:var(--red)}
+h1 em,h2 em,h3 em,.it{font-style:normal;font-weight:400;color:var(--red)}
 h1 em,h2 em,h1 .it,h2 .it{font-family:inherit;font-style:normal;font-weight:inherit;color:inherit;letter-spacing:inherit}
 
 p{margin:0}
@@ -125,7 +125,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tabs{display:grid;align-content:start;border-right:1px solid var(--line);position:relative}
 .tab{display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:12px;padding:18px 20px;text-align:left;border-bottom:1px solid var(--line);transition:background .25s}
 .tab:last-child{border-bottom:0}
-.tab .n{font-family:var(--quote);font-style:italic;font-size:44px;line-height:.8;color:var(--muted);transition:color .25s}
+.tab .n{font-family:var(--quote);font-style:normal;font-size:44px;line-height:.8;color:var(--muted);transition:color .25s}
 .tab .t{display:grid;gap:2px}
 .tab .t b{font-family:var(--display);font-weight:500;font-size:22px;line-height:1.15}
 .tab .t span{font-size:13px;color:var(--muted)}
